@@ -1,0 +1,124 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/account-calls/accounts",
+  "title": "GET accounts",
+  "summary": "Retrieves the accounts associated with the user on behalf of which the API client is authorized.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "paragraph",
+      "text": "No parameters."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "accounts",
+            "Complex",
+            "List of account records."
+          ]
+        },
+        {
+          "cells": [
+            "Account",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "type",
+            "String",
+            "Type of the account (e.g., \"Cash\", \"Margin\"). See [User Account Type](/api/documentation/rest-operations/enumerations/enumerations#account-type) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "number",
+            "string",
+            "Eight-digit account number (e.g., \"26598145\")."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "status",
+            "Enumeration",
+            "Status of the account (e.g., Active). See [Account Status](/api/documentation/rest-operations/enumerations/enumerations#account-status) for full list of values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isPrimary",
+            "Boolean",
+            "Whether this is a primary account for the holder."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isBilling",
+            "Boolean",
+            "Whether this account is one that gets billed for various expenses such as fees, market data, etc."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "clientAccountType",
+            "String",
+            "Type of client holding the account (e.g., \"Individual\"). See[client Account Type](/api/documentation/rest-operations/enumerations/enumerations#client-account-type)for full list of values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "userId",
+            "Integer",
+            "Internal identifier of the user making the request."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/accounts"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n      \"accounts\": [\n          {\n              \"type\": \"Margin\",\n              \"number\": \"26598145\",\n              \"status\": \"Active\",\n              \"isPrimary\": true,\n              \"isBilling\": true,\n              \"clientAccountType\": \"Individual\"\n          }\n      ]\n }"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "source": "https://www.questrade.com/api/documentation/",
+  "pages": [
+    {
+      "path": "/api/documentation/getting-started",
+      "label": "Getting started",
+      "file": "getting-started.json"
+    },
+    {
+      "path": "/api/documentation/release-notes",
+      "label": "Release notes",
+      "file": "release-notes.json"
+    },
+    {
+      "path": "/api/documentation/authorization",
+      "label": "Authorization",
+      "file": "authorization.json"
+    },
+    {
+      "path": "/api/documentation/streaming",
+      "label": "Streaming",
+      "file": "streaming.json"
+    },
+    {
+      "path": "/api/documentation/rate-limiting",
+      "label": "Rate limiting",
+      "file": "rate-limiting.json"
+    },
+    {
+      "path": "/api/documentation/error-handling",
+      "label": "Error handling",
+      "file": "error-handling.json"
+    },
+    {
+      "path": "/api/documentation/security",
+      "label": "Security",
+      "file": "security.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/account-calls/accounts-id-activities",
+      "group": "Account calls",
+      "label": "GET accounts/:id/activities",
+      "file": "rest-operations/account-calls/accounts-id-activities.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/account-calls/accounts-id-orders",
+      "group": "Account calls",
+      "label": "GET accounts/:id/orders",
+      "file": "rest-operations/account-calls/accounts-id-orders.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/account-calls/accounts-id-executions",
+      "group": "Account calls",
+      "label": "GET accounts/:id/executions",
+      "file": "rest-operations/account-calls/accounts-id-executions.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/account-calls/accounts-id-balances",
+      "group": "Account calls",
+      "label": "GET accounts/:id/balances",
+      "file": "rest-operations/account-calls/accounts-id-balances.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/account-calls/accounts-id-positions",
+      "group": "Account calls",
+      "label": "GET accounts/:id/positions",
+      "file": "rest-operations/account-calls/accounts-id-positions.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/account-calls/accounts",
+      "group": "Account calls",
+      "label": "GET accounts",
+      "file": "rest-operations/account-calls/accounts.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/account-calls/time",
+      "group": "Account calls",
+      "label": "GET time",
+      "file": "rest-operations/account-calls/time.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/market-calls/markets-candles-id",
+      "group": "Market calls",
+      "label": "GET markets/candles/:id",
+      "file": "rest-operations/market-calls/markets-candles-id.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/market-calls/markets-quotes-strategies",
+      "group": "Market calls",
+      "label": "GET markets/quotes/strategies",
+      "file": "rest-operations/market-calls/markets-quotes-strategies.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/market-calls/markets-quotes-options",
+      "group": "Market calls",
+      "label": "GET markets/quotes/options",
+      "file": "rest-operations/market-calls/markets-quotes-options.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/market-calls/markets-quotes-id",
+      "group": "Market calls",
+      "label": "GET markets/quotes/:id",
+      "file": "rest-operations/market-calls/markets-quotes-id.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/market-calls/markets",
+      "group": "Market calls",
+      "label": "GET markets",
+      "file": "rest-operations/market-calls/markets.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/market-calls/symbols-id-options",
+      "group": "Market calls",
+      "label": "GET symbols/:id/options",
+      "file": "rest-operations/market-calls/symbols-id-options.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/market-calls/symbols-search",
+      "group": "Market calls",
+      "label": "GET symbols/search",
+      "file": "rest-operations/market-calls/symbols-search.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/market-calls/symbols-id",
+      "group": "Market calls",
+      "label": "GET symbols/:id",
+      "file": "rest-operations/market-calls/symbols-id.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/order-calls/accounts-id-orders",
+      "group": "Order calls",
+      "label": "POST accounts/:id/orders",
+      "file": "rest-operations/order-calls/accounts-id-orders.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/order-calls/accounts-id-orders-impact",
+      "group": "Order calls",
+      "label": "POST accounts/:id/orders/impact",
+      "file": "rest-operations/order-calls/accounts-id-orders-impact.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/order-calls/accounts-id-orders-orderid",
+      "group": "Order calls",
+      "label": "DELETE accounts/:id/orders",
+      "file": "rest-operations/order-calls/accounts-id-orders-orderid.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/order-calls/accounts-id-orders-bracket",
+      "group": "Order calls",
+      "label": "POST accounts/:id/orders/bracket",
+      "file": "rest-operations/order-calls/accounts-id-orders-bracket.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/order-calls/accounts-id-orders-strategy",
+      "group": "Order calls",
+      "label": "POST accounts/:id/orders/strategy",
+      "file": "rest-operations/order-calls/accounts-id-orders-strategy.json"
+    },
+    {
+      "path": "/api/documentation/rest-operations/enumerations/enumerations",
+      "group": "Enumerations",
+      "label": "Enumerations",
+      "file": "rest-operations/enumerations/enumerations.json"
+    }
+  ]
+}

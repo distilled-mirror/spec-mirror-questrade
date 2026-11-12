@@ -1,0 +1,179 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/account-calls/accounts-id-positions",
+  "title": "GET accounts/:id/positions",
+  "summary": "Retrieves positions in a specified account.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "Account number. Can occur in the 'location' header only."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "positions",
+            "Complex",
+            "List of account records."
+          ]
+        },
+        {
+          "cells": [
+            "Position",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "symbol",
+            "String",
+            "Position symbol."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "openQuantity",
+            "Double",
+            "Position quantity remaining open."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "closedQuantity",
+            "Double",
+            "Portion of the position that was closed today."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "currentMarketValue",
+            "Double",
+            "Market value of the position (quantity x price)."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "currentPrice",
+            "Double",
+            "Current price of the position symbol."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "averageEntryPrice",
+            "Double",
+            "Average price paid for all executions constituting the position."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "closedPnL",
+            "Double",
+            "Realized profit/loss on this position."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "openPnL",
+            "Double",
+            "Unrealized profit/loss on this position."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "totalCost",
+            "Double",
+            "Total cost of the position."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isRealTime",
+            "Boolean",
+            "Designates whether real-time quote was used to compute PnL."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isUnderReorg",
+            "Boolean",
+            "Designates whether a symbol is currently undergoing a reorg."
+          ],
+          "level": 3
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/accounts/26598145/positions"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n     \"positions\": [\n           {\n                \"symbol\": \"THI.TO\",\n                \"symbolId\": 38738,\n                \"openQuantity\": 100,\n                \"currentMarketValue\": 6017,\n                \"currentPrice\": 60.17,\n                \"averageEntryPrice\": 60.23,\n                \"closedPnl\": 0,\n                \"openPnl\": -6,\n                \"totalCost\": false,\n                \"isRealTime\": \"Individual\",\n                \"isUnderReorg\": false\n           }\n      ]\n }"
+    }
+  ]
+}

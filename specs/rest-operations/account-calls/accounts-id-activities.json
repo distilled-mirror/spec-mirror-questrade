@@ -1,0 +1,215 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/account-calls/accounts-id-activities",
+  "title": "GET accounts/:id/activities",
+  "summary": "Retrieve account activities, including cash transactions, dividends, trades, etc.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Name",
+        "Tipe",
+        "Default",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "",
+            "The account number"
+          ]
+        },
+        {
+          "cells": [
+            "startTime",
+            "DateTime",
+            "",
+            "The start time of the interval to retrieve orders"
+          ]
+        },
+        {
+          "cells": [
+            "endTime",
+            "DateTime",
+            "",
+            "The end time of the interval to retrieve orders"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "activities",
+            "Array",
+            "Array of activity records"
+          ]
+        },
+        {
+          "cells": [
+            "AccountActivity",
+            "Complex",
+            ""
+          ]
+        },
+        {
+          "cells": [
+            "tradeDate",
+            "DateTime",
+            "Trade date"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "transactionDate",
+            "DateTime",
+            "Transaction date"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "settlementDate",
+            "DateTime",
+            "Settlement date"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "action",
+            "String",
+            "Activity action"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "symbol",
+            "String",
+            "Symbol name"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "symbolId",
+            "uint64",
+            "Symbol ID"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "description",
+            "String",
+            "Description"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "currency",
+            "Enumeration",
+            "Currency"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "quantity",
+            "Double",
+            "The quantity"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "price",
+            "Double",
+            "The price"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "grossAmount",
+            "Double",
+            "Gross amount"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "commission",
+            "Double",
+            "The commission"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "netAmount",
+            "Double",
+            "Net Amount"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "type",
+            "String",
+            "Activity Type"
+          ],
+          "level": 2
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Maximum 31 days of data can be requested at a time."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/accounts/26598145/activities?startTime=2011-02-01T00:00:00-05:00&endTime=2011-02-28T00:00:00-05:00&"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample response:"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n   \"activities\": [\n        {\n           \"tradeDate\": \"2011-02-16T00:00:00.000000-05:00\",\n           \"transactionDate\": \"2011-02-16T00:00:00.000000-05:00\",\n           \"settlementDate\":  \"2011-02-16T00:00:00.000000-05:00\",\n           \"action\": \"\",\n           \"symbol\":  \"\",\n           \"symbolId\": 0,\n           \"description\": \"INT FR 02/04 THRU02/15@ 4 3/4%BAL 205,006 AVBAL 204,966\",\n           \"currency\": \"USD\",\n           \"quantity\": 0,\n           \"price\":  0,\n           \"grossAmount\":  0,\n           \"commission\":  0,\n           \"netAmount\": -320.08,\n           \"type\": \"Interest\"      \n         },\n              ...\n      ]\n }"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "url": "https://www.questrade.com/api/documentation/streaming",
+  "title": "Streaming",
+  "summary": "Streaming services in Questrade API allows client applications to subscribe and receive push notifications on order status changes, executions and as well as subscribe to L1 market data and receive quotes in steaming mode.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-notifications",
+      "text": "Order Notifications"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Request notification port"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/notifications?mode=RawSocket\nGET https://api01.iq.questrade.com/v1/notifications?mode=WebSocket\n\nResponse:  \n{\n        \"streamPort\": 8080  \n}"
+    },
+    {
+      "type": "paragraph",
+      "text": "Notifications endpoint does not accept JSON format messages. You can hardcode the mode as it’s unlikely you’ll change it within the same application."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ports do not change on the same URL within the same day. On a different URL, however, they can be different."
+    },
+    {
+      "type": "paragraph",
+      "text": "You cannot connect to both RawSocket and WebSocket at the same time. When you create a second connection, it will disconnect the previous one."
+    },
+    {
+      "type": "listItem",
+      "text": "On RawSocket, within 5 seconds after the connection is established, send the access token and then ' ' as a delimiter (a space character)"
+    },
+    {
+      "type": "listItem",
+      "text": "On WebSocket, send the access token as a message without any delimiters"
+    },
+    {
+      "type": "paragraph",
+      "text": "Note: Do not use the word Bearer in sockets"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "If the token is recognized, the response message will be:"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\"success\": true}"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Notification response will include either:"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\"orders\": [...], \"accountNumber\": XXXXXXXX}"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Order Data structures (same as on GET orders endpoint) or"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\"orders\" : [...], \"executions\" : [ ...], \"accountNumber\" : XXXXXXXX}"
+    },
+    {
+      "type": "paragraph",
+      "text": "Execution Data structures (same as on GET executions endpoint)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Note: Executions always update orders so there cannot be executions without orders. Keeping a socket open does not extend your session. You need to send requests at least every 30 minutes otherwise your socket will get disconnected when the session expires."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "l1-streaming",
+      "text": "L1 Streaming"
+    },
+    {
+      "type": "paragraph",
+      "text": "Same as for notifications, you can use either WebSocket or RawSocket Ports for L1 are separate but still remain same for the same URL within the same day."
+    },
+    {
+      "type": "paragraph",
+      "text": "Note: If you use L1 Streaming in Trading API, then your market data will freeze in any other IQ Platform that you are using simultaneously."
+    },
+    {
+      "type": "paragraph",
+      "text": "You must specify stream=true (or '\"stream\": true' in JSON) and then the mode you want to use"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/markets/quotes?ids=9291,8049\"stream=true\"mode=RawSocket\nPOST https://api01.iq.questrade.com/v1/markets/quotes/options \n      {\n            \"stream\": true ,\n            \"mode\": \"RawSocket\" ,\n            \"filters\": [\n               {\n                   \"optionType\": \"Call\" ,\n                   \"underlyingId\": 27426 ,\n                   \"expiryDate\": \"2017-01-20T00:00:00.000000-05:00\" ,\n                   \"minstrikePrice\": 70 ,\n                   \"maxstrikePrice\": 80 \n               },\n               ...\n         ],\n                \"optionIds\":\n         [\n             9907637 ,\n             9907638 ,\n                ...\n         ]\n     }"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST https://api01.iq.questrade.com/v1/markets/quotes/strategies\n      {\n            \"stream\": true ,\n            \"mode\": \"RawSocket\" ,\n            \"variants\": [\n               {\n                     \"variantId\": 1 ,\n                     \"strategy\": \"Custom\",\n                     \"legs:  [\n                         {\n                              \"symbolId\": 27426 ,\n                              \"ratio\": 1000 ,\n                              \"action\": \"Buy\" \n                         },\n                        {\n                             \"symbolId\": 10550014 ,\n                             \"ratio\": 10,\n                             \"action\": \"Sell\" \n                           }\n                       ]\n                  },\n                     ...\n              ]\n       }"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Downloads"
+    },
+    {
+      "type": "paragraph",
+      "text": "C ++"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcpp.exe)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "C #/Active X"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcsharp.exe)"
+          ]
+        }
+      ]
+    }
+  ]
+}

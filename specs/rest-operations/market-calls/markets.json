@@ -1,0 +1,212 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/market-calls/markets",
+  "title": "GET markets",
+  "summary": "Retrieves information about supported markets.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "paragraph",
+      "text": "No parameters."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "markets",
+            "Complex",
+            "List of Quote records."
+          ]
+        },
+        {
+          "cells": [
+            "Market",
+            "Complex",
+            ""
+          ]
+        },
+        {
+          "cells": [
+            "name",
+            "String",
+            "Market name."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "tradingVenues",
+            "Complex",
+            "List of trading venue codes."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "code",
+            "Enumeration",
+            "Order execution venue code."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "defaultTradingVenue",
+            "Enumeration",
+            "Default trading venue code."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "primaryOrderRoutes",
+            "Complex",
+            "List of primary order route codes."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "code",
+            "Enumeration",
+            "Order route code."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "secondaryOrderRoutes",
+            "Complex",
+            "List of secondary order route codes."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "code",
+            "Enumeration",
+            "Order route code."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "level1Feeds",
+            "Complex",
+            "List of level 1 market data feed codes."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "code",
+            "Enumeration",
+            "Level 1 market data feed code."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "level2Feeds",
+            "Complex",
+            "List of level 2 market data feed codes."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "code",
+            "Enumeration",
+            "Level 2 market data feed code."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "extendedStartTime",
+            "DateTime",
+            "Pre-market opening time for current trading date."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "startTime",
+            "DateTime",
+            "Regular market opening time for current trading date."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "endTime",
+            "DateTime",
+            "Regular market closing time for current trading date."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "extendedEndTime",
+            "DateTime",
+            "Extended market closing time for current trading date."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "currency",
+            "Enumeration",
+            "Currency code (ISO format)."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "snapQuotesLimit",
+            "Integer",
+            "Number of snap quotes that the user can retrieve from a market."
+          ],
+          "level": 2
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/markets"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n   \"markets\": [\n\t{\n\t\t\"name\": \"TSX\",\n\t\t\"tradingVenues\": [\n\t\t\t\"TSX\",\n\t\t\t\"ALPH\",\n\t\t\t\"CHIC\",\n\t\t\t\"OMGA\",\n  \t\t    \"PURE\"\n                    ]\n\t\t\"defaultTradingVenue\": \"AUTO\",\n\t\t\"primaryOrderRoutes\": [\n\t\t\t\"AUTO\"\n\t\t],\n\t\t\"secondaryOrderRoutes\": [\n\t\t\t\"TSX\",\n\t\t    \"AUTO\" \n\t\t],\n\t\t\"level1Feeds\": [\n\t\t\t\"ALPH\",\n\t\t\t\"CHIC\",\n\t\t\t\"OMGA\",\n\t\t\t\"PURE\",\n\t\t    \"TSX\"\n\t\t],\n\t\t\"extendedStartTime\": \"2014-10-06T07:00:00.000000-04:00\",\n\t\t\"startTime\": \"2014-10-06T09:30:00.000000-04:00\",\n\t\t\"endTime\": \"2014-10-06T16:00:00.000000-04:00\",\n\t\t\"currency\": \"CAD\",\n\t\t\"snapQuotesLimit\": 99999\n\t   },\n\t\t...\n      ]\n}"
+    }
+  ]
+}

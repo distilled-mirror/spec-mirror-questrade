@@ -1,0 +1,185 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/account-calls/accounts-id-balances",
+  "title": "GET accounts/:id/balances",
+  "summary": "Retrieves per-currency and combined balances for a specified account.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "Account number. Can occur in the 'location' header only."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "perCurrencyBalances",
+            "Complex",
+            "List of account records."
+          ]
+        },
+        {
+          "cells": [
+            "Balance",
+            "Complex",
+            "See below."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "combinedBalances",
+            "Complex",
+            "List of Balance records."
+          ]
+        },
+        {
+          "cells": [
+            "Balance",
+            "Complex",
+            "See below."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "sodPerCurrencyBalances",
+            "Complex",
+            "List of Balance records."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "Balance",
+            "Complex",
+            "See below."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "sodCombinedBalances",
+            "Complex",
+            "List of Balance records."
+          ]
+        },
+        {
+          "cells": [
+            "Balance",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "currency",
+            "Enumeration",
+            "Currency of the balance figure(e.g., \"USD\" or \"CAD\"). See [Currency](/api/documentation/rest-operations/enumerations/enumerations#currency) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "cash",
+            "Double",
+            "Balance amount."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "marketValue",
+            "Double",
+            "Market value of all securities in the account in a given currency."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "totalEquity",
+            "Double",
+            "Equity as a difference between cash and marketValue properties."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "buyingPower",
+            "Double",
+            "Buying power for that particular currency side of the account."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "maintenanceExcess",
+            "Double",
+            "Maintenance excess for that particular side of the account."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isRealTime",
+            "Boolean",
+            "Whether real-time data was used to calculate the above values."
+          ],
+          "level": 3
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/accounts/26598145/balances"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n     \"perCurrencyBalances\": [\n         {\n              \"currency\": \"CAD\",\n               \"cash\": 243971.7,\n               \"marketValue\":  6017,\n               \"totalEquity\":  249988.7,\n               \"buyingPower\": 496367.2,\n               \"maintenanceExcess\": 248183.6,\n              \"isRealTime\": false\n         },\n         {\n              \"currency\": \"USD\",\n              \"cash\": 198259.05,\n              \"marketValue\":  53745,\n              \"totalEquity\":  252004.05,\n              \"buyingPower\":  461013.3,\n              \"maintenanceExcess\":  230506.65,\n             \"isRealTime\": false\n          }\n     ],\n         \"combinedBalances\": [\n                 ...\n     ],\n         \"sodPerCurrencyBalances\": [\n                 ...\n     ],\n        \"sodCombinedBalances\": [\n                 ...\n     ]\n }"
+    }
+  ]
+}

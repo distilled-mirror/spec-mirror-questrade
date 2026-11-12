@@ -1,0 +1,164 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/market-calls/markets-candles-id",
+  "title": "GET markets/candles/:id",
+  "summary": "Retrieves historical market data in the form of OHLC candlesticks for a specified symbol.",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "This call is limited to returning 2,000 candlesticks in a single response."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "integer",
+            "Internal symbol identifier. Can occur in the ‘location’ header only."
+          ]
+        },
+        {
+          "cells": [
+            "startTime",
+            "DateTime",
+            "Beginning of the candlestick range."
+          ]
+        },
+        {
+          "cells": [
+            "endTime",
+            "DateTime",
+            "End of the candlestick range."
+          ]
+        },
+        {
+          "cells": [
+            "interval",
+            "Enumeration",
+            "Interval of a single candlestick. See [Historical Data Granularity](/api/documentation/rest-operations/enumerations/enumerations#historical-data-granularity) for all allowed values."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "candles",
+            "Complex",
+            "List of Candle records."
+          ]
+        },
+        {
+          "cells": [
+            "Candle",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "start",
+            "DateTime",
+            "Candlestick start timestamp (in ISO format)."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "end",
+            "DateTime",
+            "Candlestick end timestamp (in ISO format)."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "open",
+            "Double",
+            "Opening price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "high",
+            "Double",
+            "High price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "low",
+            "Double",
+            "Low price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "close",
+            "Double",
+            "Closing price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "volume",
+            "Integer",
+            "Trading volume."
+          ],
+          "level": 3
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/markets/candles/38738?startTime=2014-10-01T00:00:00-05:00&endTime=2014-10-20T23:59:59-05:00&interval=OneDay"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response:"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n     \"candles\": [\n         {\n             \"start\": \"2014-01-02T00:00:00.000000-05:00\",\n             \"end\": \"2014-01-03T00:00:00.000000-05:00\",\n             \"low\": 70.3,\n             \"high\": 70.78,\n             \"open\": 70.68,\n             \"close\": 70.73,\n             \"volume\": 983609\n         },\n              ...\n      ]\n }"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "url": "https://www.questrade.com/api/documentation/getting-started",
+  "title": "Getting started",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "What can I do with the Questrade API"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Questrade API enables you to develop live or practice applications that can access your account data and retrieve market data. If you are a Questrade [partner](/self-directed-investing/tools/partners) developer, you can also use the API to place trades."
+    },
+    {
+      "type": "paragraph",
+      "text": "If you're interested in partnering with Questrade as a company or a developer, email us at [apisupport@questrade.com](mailto:apisupport@questrade.com) with details about your platform."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Activating IQ API centre"
+    },
+    {
+      "type": "paragraph",
+      "text": "Using your login credentials, log in to Questrade."
+    },
+    {
+      "type": "listItem",
+      "text": "API welcome page In the top right corner where you see your login name, select API centre from the drop-down menu. You will be redirected to the API welcome page providing you with more information about the API."
+    },
+    {
+      "type": "listItem",
+      "text": "Activate API Once you're ready, click Activate API."
+    },
+    {
+      "type": "listItem",
+      "text": "API access agreement The API access agreement appears. You need to read and agree to the terms listed in the agreement to proceed. After clicking Agree, you will be one step closer to getting access to Questrade's API."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "creating-your-first-personal-app",
+      "text": "Creating your first personal app"
+    },
+    {
+      "type": "paragraph",
+      "text": "Manual authorization flow:"
+    },
+    {
+      "type": "listItem",
+      "text": "In the API Centre, click Register a personal app."
+    },
+    {
+      "type": "listItem",
+      "text": "In the create personal app section, under basic information, enter a name for your application including a brief description and click Save. The personal app is visible under personal applications."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "authorizing-your-app-to-access-the-api",
+      "text": "Authorizing your app to access the API"
+    },
+    {
+      "type": "listItem",
+      "text": "In the personal applications page, click New manual authorization."
+    },
+    {
+      "type": "listItem",
+      "text": "Click Generate new token for manual authorization."
+    },
+    {
+      "type": "listItem",
+      "text": "A token is generated and appears in the authorization pop-up window. Click Copy token to copy it before clicking Close."
+    },
+    {
+      "type": "listItem",
+      "text": "Use the token you copied to redeem it for an access token and the server or practice server URL using the following command: https://login.questrade.com/oauth2/token?grant_type=refresh_token&refresh_token= orhttps://practicelogin.questrade.com/oauth2/token?grant_type=refresh_token&refresh_token= Sample response:"
+    },
+    {
+      "type": "listItem",
+      "text": "Attempt your first API call. Use the access token and server URL with the following command to make an authorized call:Sample request command: Sample response:"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n       “access_token”: “C3lTUKuNQrAAmSD/TPjuV/HI7aNrAwDp”  ,\n       \"token_type\": \"Bearer\" ,\n        \"expires_in\": 300,\n       \"refresh_token\": \"aSBe7wAAdx88QTbwut0tiu3SYic3ox8F\",\n        \"api_server\": \"https://api01.iq.questrade.com\"\n }"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET /v1/accounts HTTP/1.1\nHost: https://api01.iq.questrade.com\nAuthorization: Bearer C3lTUKuNQrAAmSD/TPjuV/HI7aNrAwDp"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n\t\"accounts\": [\n\t\t{\n\t\t    \"type\": \"Margin\"\n            \"number\":\"26598145\",\n\t\t    \"status\": \"Active\",\n\t\t    \"isPrimary\": true,\n\t\t    \"isBilling\": true,\n\t\t    \"clientAccountType: \"Individual\"\n\t\t},\n\t\t...\n\t],\n\t\"userId\": 3000124\n}"
+    },
+    {
+      "type": "paragraph",
+      "text": "That’s it! You are now ready to start making requests to Questrade’s IQ platform using your personal access token."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "what-s-next",
+      "text": "What's next?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Depending on your comfort level, you can either choose to explore Questrade's API [methods directory](/api/documentation/rest-operations/account-calls/time) to expand your knowledge."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Downloads"
+    },
+    {
+      "type": "paragraph",
+      "text": "C ++"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcpp.exe)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "C #/Active X"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcsharp.exe)"
+          ]
+        }
+      ]
+    }
+  ]
+}

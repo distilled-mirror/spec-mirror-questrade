@@ -1,0 +1,344 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/market-calls/markets-quotes-options",
+  "title": "GET markets/quotes/options",
+  "summary": "Retrieves a single Level 1 market data quote and Greek data for one or more option symbols.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "filters",
+            "Complex",
+            "Input array of OptionIdFilter structures"
+          ]
+        },
+        {
+          "cells": [
+            "ids",
+            "Integer[ ]",
+            "Input array of option IDs."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "option-id-filter",
+      "text": "OptionIdFilter"
+    },
+    {
+      "type": "paragraph",
+      "text": "Option filters based on underlying Ids"
+    },
+    {
+      "type": "table",
+      "caption": "OptionIdFilter",
+      "columns": [
+        "Name",
+        "Type",
+        "Default",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "optionType",
+            "Enumeration",
+            "",
+            "Option type"
+          ]
+        },
+        {
+          "cells": [
+            "underlyingId",
+            "Integer",
+            "",
+            "Underlying ID"
+          ]
+        },
+        {
+          "cells": [
+            "expiryDate",
+            "DateTime",
+            "",
+            "Expiry date"
+          ]
+        },
+        {
+          "cells": [
+            "minstrikePrice",
+            "Double",
+            "0",
+            "Min strike price"
+          ]
+        },
+        {
+          "cells": [
+            "maxstrikePrice",
+            "Double",
+            "0",
+            "Max strike price"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "quotes",
+            "Complex",
+            "List of Level1OptionData records."
+          ]
+        },
+        {
+          "cells": [
+            "Level1OptionData",
+            "Complex",
+            ""
+          ]
+        },
+        {
+          "cells": [
+            "underlying",
+            "String",
+            "Underlying name"
+          ]
+        },
+        {
+          "cells": [
+            "underlyingId",
+            "Integer",
+            "Underlying ID"
+          ]
+        },
+        {
+          "cells": [
+            "symbol",
+            "String",
+            "Symbol name"
+          ]
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Symbol ID"
+          ]
+        },
+        {
+          "cells": [
+            "bidPrice",
+            "Double",
+            "Bid price"
+          ]
+        },
+        {
+          "cells": [
+            "bidSize",
+            "Integer",
+            "Bid size"
+          ]
+        },
+        {
+          "cells": [
+            "askPrice",
+            "Double",
+            "Ask price"
+          ]
+        },
+        {
+          "cells": [
+            "askSize",
+            "Integer",
+            "Ask size"
+          ]
+        },
+        {
+          "cells": [
+            "lastTradePriceTrHrs",
+            "Double",
+            "Last trade price trade hours"
+          ]
+        },
+        {
+          "cells": [
+            "lastTradePrice",
+            "Double",
+            "Last trade price"
+          ]
+        },
+        {
+          "cells": [
+            "lastTradeSize",
+            "Integer",
+            "Last trade size"
+          ]
+        },
+        {
+          "cells": [
+            "lastTradeTick",
+            "Enumeration",
+            "Last trade tick"
+          ]
+        },
+        {
+          "cells": [
+            "lastTradeTime",
+            "DateTime",
+            "Last trade time"
+          ]
+        },
+        {
+          "cells": [
+            "volume",
+            "Integer",
+            "Volume"
+          ]
+        },
+        {
+          "cells": [
+            "openPrice",
+            "Double",
+            "Open price"
+          ]
+        },
+        {
+          "cells": [
+            "highPrice",
+            "Double",
+            "High price"
+          ]
+        },
+        {
+          "cells": [
+            "lowPrice",
+            "Double",
+            "Low price"
+          ]
+        },
+        {
+          "cells": [
+            "volatility",
+            "Double",
+            "Volatility"
+          ]
+        },
+        {
+          "cells": [
+            "delta",
+            "Double",
+            "Delta"
+          ]
+        },
+        {
+          "cells": [
+            "gamma",
+            "Double",
+            "Gamma"
+          ]
+        },
+        {
+          "cells": [
+            "theta",
+            "Double",
+            "Theta"
+          ]
+        },
+        {
+          "cells": [
+            "vega",
+            "Double",
+            "Vega"
+          ]
+        },
+        {
+          "cells": [
+            "rho",
+            "Double",
+            "Rho"
+          ]
+        },
+        {
+          "cells": [
+            "openInterest",
+            "Integer",
+            "Open interest"
+          ]
+        },
+        {
+          "cells": [
+            "delay",
+            "Integer",
+            "How much is data delayed"
+          ]
+        },
+        {
+          "cells": [
+            "isHalted",
+            "Boolean",
+            "Whether or not the symbol was halted"
+          ]
+        },
+        {
+          "cells": [
+            "VWAP",
+            "Double",
+            "Volume Weighted Average Price"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The underlyingId and expiryDate fields are required in filters. Other fields are optional (if you need multiple expiries, specify multiple filters). You can specify an OptionIds and/or a filters vectors in any given request."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST https://api01.iq.questrade.com/v1/markets/quotes/options\n{\n    “filters”: [\n        {\n             “optionType”: ”Call”,\n             “underlyingId”: 27426,\n             “expiryDate”: ”2017-01-20T00:00:00.000000-05:00”,\n             “minstrikePrice”: 70,\n             “maxstrikePrice”: 80\n        },\n              ...\n      ],\n      “optionIds”:\n             [\n              9907637,\n              9907638,\n                  ...\n         ]\n  }"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n    “optionQuotes”: [\n        {\n            “underlying”: ”MSFT”,\n            “underlyingId”: 27426,\n            “symbol”: ”MSFT20Jan17C70.00”,\n            “symbolId”: 7413503,\n            “bidPrice”: 4.90,\n            “bidSize”: 0,\n            “askPrice”: 4.95,\n            “askSize”: 0,\n            “lastTradePriceTrHrs”: 4.93,\n            “lastTradePrice”: 4.93,\n            “lastTradeSize”: 0,\n            “lastTradeTick”: ”Equal”,\n            “lastTradeTime”: ”2015-08-17T00:00:00.000000-04:00”,\n            “volume”: 0.\n            “openPrice”: 0,\n            “highPricehighPrice”: 4.93,\n            “lowPrice”: 0,\n            “volatility”: 52.374257,\n            “delta”: 0.06985,\n            “gamma”: 0.01038,\n            “theta”: -0.001406,\n            “vega”: 0.074554,\n            “rho”: 0.04153,\n            “openInterest”: 2292,\n            “delay”: 0,\n           “isHalted”: false,\n           “VWAP”: 0\n        },\n             ...\n     ]\n\n }"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rate-limiting",
+  "title": "Rate limiting",
+  "summary": "The API implements a rate limiting system for all authenticated calls. The purpose of this functionality is to protect servers from abuse and to provide a clear expectation of the level of service that the API commits to fulfil.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "limits",
+      "text": "Limits"
+    },
+    {
+      "type": "paragraph",
+      "text": "Rate limits are defined across categories of API calls as described in the following table."
+    },
+    {
+      "type": "table",
+      "caption": "Limits",
+      "columns": [
+        "Category",
+        "API Calls",
+        "Maximum allowed requests per second",
+        "Maximum allowed requests per hour"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Account calls",
+            "GET time\nGET accounts\nGET accounts:id/positions\nGET accounts/:id/balances\nGET accounts/:id/executions\nGET accounts/:id/orders",
+            "30",
+            "30000"
+          ]
+        },
+        {
+          "cells": [
+            "Market Data calls",
+            "GET markets\nGET markets/quotes/:id\nGET markets/candles/:id\nGET symbols/:id\nGET symbols/:id/options",
+            "20",
+            "15000"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "rate-limit-headers",
+      "text": "Rate limit headers"
+    },
+    {
+      "type": "paragraph",
+      "text": "The API communicates rate limit information in the headers of responses to all calls that are limited."
+    },
+    {
+      "type": "paragraph",
+      "text": "Specifically, the following headers are provided:"
+    },
+    {
+      "type": "listItem",
+      "text": "X-RateLimit-Remaining – number of requests allowed against the current limit"
+    },
+    {
+      "type": "listItem",
+      "text": "X-RateLimit-Reset – time when the current limit will expire (Unix timestamp)"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample rate limit headers"
+    },
+    {
+      "type": "code",
+      "language": "Plain text",
+      "text": "HTTP/1.1 200 OK\n   Content-Length: 123\n   Content-Type: application/json; charset=utf-8\n   Date: Fri, 18 Aug 2014 22:17:16 GMT\n   X-RateLimit-Remaining: 100\n   X-RateLimit-Reset: 1300286940"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "exceeding-limits",
+      "text": "Exceeding limits"
+    },
+    {
+      "type": "paragraph",
+      "text": "If one exceeds the above rate limits, then the API server will respond with a rate limit error message with the HTTP status code 429 (Too Many Requests) and the same rate limit headers one would receive in a normal response to limited call."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Downloads"
+    },
+    {
+      "type": "paragraph",
+      "text": "C ++"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcpp.exe)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "C #/Active X"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcsharp.exe)"
+          ]
+        }
+      ]
+    }
+  ]
+}

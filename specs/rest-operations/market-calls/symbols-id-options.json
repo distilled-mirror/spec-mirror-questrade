@@ -1,0 +1,179 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/market-calls/symbols-id-options",
+  "title": "GET symbols/:id/options",
+  "summary": "Retrieves an option chain for a particular underlying symbol.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "Integer",
+            "Internal symbol identifier. Can occur in the ‘location’ header only."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "symbols",
+            "Complex",
+            "List of ChainPerExpiryDate elements."
+          ]
+        },
+        {
+          "cells": [
+            "ChainPerExpiryDate",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "expiryDate",
+            "DateTime",
+            "Option expiry date."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "description",
+            "String",
+            "Description of the underlying option."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "listingExchange",
+            "Enumeration",
+            "Primary listing exchange. See [Listing Exchange](/api/documentation/rest-operations/enumerations/enumerations#listing-exchange) section for the list of all listing exchanges."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "optionExerciseType",
+            "Enumeration",
+            "Option exercise style (e.g., \"American\"). See [Option Exercise Type](/api/documentation/rest-operations/enumerations/enumerations#option-exercise-type) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "chainPerRoot",
+            "Complex",
+            "List of ChainPerRoot elements."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "ChainPerRoot",
+            "Complex",
+            ""
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "optionRoot",
+            "String",
+            "Option root symbol."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "chainPerStrikePrice",
+            "Complex",
+            "List of ChainPerStrikePrice elements."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "ChainPerStrikePrice",
+            "Complex",
+            ""
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "strikePrice",
+            "Double",
+            "Option strike price."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "callSymbolId",
+            "Integer",
+            "Internal identifier of the call option symbol."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "putSymbolId",
+            "Integer",
+            "Internal identifier of the put option symbol."
+          ],
+          "level": 2
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/symbols/9291/options"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n    \"options\": [\n\t{ \n\t\t\"expiryDate\": \"2015-01-17T00:00:00.000000-05:00\", \n\t\t\"description\":   \"BANK OF MONTREAL\", \n\t\t\"listingExchange\":   \"MX\", \n\t\t\"optionExerciseType\":   \"American\", \n\t\t\"chainPerRoot\": [\n\t\t    {\n\t\t\t\"root\":   \"BMO\",\n\t\t\t\"chainPerStrikePrice\": [\n\t\t\t\t{\n\t\t\t\t\t\"strikePrice\":   60, \n\t\t\t\t\t\"callSymbolId\":  6101993, \n\t\t\t\t\t\"putSymbolId\":   6102009\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"strikePrice\":   62, \n\t\t\t\t\t\"callSymbolId\":   6101994, \n\t\t\t\t\t\"putSymbolId\":   6102010\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"strikePrice\":   64, \n\t\t\t\t\t\"callSymbolId\":   6101995, \n\t\t\t\t\t\"putSymbolId\":   6102011\n\t\t\t\t},\n\t            \t\t\t... \n\t\t\t\t],\n\t\t       \t\"multiplier\":   100\n\t\t      }\n\t       ]\n        }\n     ]\n}"
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "url": "https://www.questrade.com/api/documentation/error-handling",
+  "title": "Error handling",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "error-format",
+      "text": "Error format"
+    },
+    {
+      "type": "paragraph",
+      "text": "In case of not being able to successfully service a request the API will return an error response."
+    },
+    {
+      "type": "paragraph",
+      "text": "The API offers two categories of errors:"
+    },
+    {
+      "type": "listItem",
+      "text": "General Error – errors that do NOT result in creation of an order with an internal identifier."
+    },
+    {
+      "type": "listItem",
+      "text": "Order Processing Error – errors that occur during processing of trade calls (e.g., placing, replacing, canceling an order) that result in an order being created in the platform."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "general-error-response",
+      "text": "General error response"
+    },
+    {
+      "type": "paragraph",
+      "text": "General error message will consist of properties specified in the table below."
+    },
+    {
+      "type": "table",
+      "caption": "General error response",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "code",
+            "String",
+            "Error code."
+          ]
+        },
+        {
+          "cells": [
+            "message",
+            "String",
+            "Error description."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample"
+    },
+    {
+      "type": "code",
+      "language": "Plain text",
+      "text": "HTTP/1.1 400 Bad Request\n  Content-Length: 63\n  Content-Type: application/json; charset=utf-8\n  Date: Fri, 18 Aug 2014 22:17:16 GMT \n      {\n          \"code\": 3139 ,\n           \"message\": \"Invalid route\" \n      }"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-processing-error-response",
+      "text": "Order processing error response"
+    },
+    {
+      "type": "paragraph",
+      "text": "Whenever a trading call results in the creation of an order with a unique internal identifier, the platform will return an error response with additional properties (orderId and orders) in addition to standard error fields (code and message) in the response."
+    },
+    {
+      "type": "table",
+      "caption": "Order processing error response",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "code",
+            "String",
+            "Error code."
+          ]
+        },
+        {
+          "cells": [
+            "message",
+            "String",
+            "Error description."
+          ]
+        },
+        {
+          "cells": [
+            "orderId",
+            "Integer",
+            "Internal unique identifier assigned to the order"
+          ]
+        },
+        {
+          "cells": [
+            "orders",
+            "Complex",
+            "List of Order records"
+          ]
+        },
+        {
+          "cells": [
+            "orders",
+            "Complex",
+            "See Order record in the above sections of this document"
+          ],
+          "level": 2
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample order error response (no order created)"
+    },
+    {
+      "type": "code",
+      "language": "Plain text",
+      "text": "HTTP/1.1 400 Bad Request\n  Content-Length: 63\n  Content-Type: application/json; charset=utf-8\n  Date: Fri, 18 Aug 2014 22:17:16 GMT\n      {\n           \"code\": 3139,\n           \"message\": \"Invalid route\"\n      }"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample order error response (order created)"
+    },
+    {
+      "type": "code",
+      "language": "Plain text",
+      "text": "HTTP/1.1 200 OK\n Content-Length: 63\n Content-Type: application/json; charset=utf-8\n Date: Fri, 18 Aug 2014 22:17:16 GMT \n      {\n           \"code\": 3054 ,\n           \"message\": \"Order was rejected by the exchange\" ,\n           \"orderId\": 134353223 ,\n           \"orders\": [\n                ...\n       ]\n     }"
+    },
+    {
+      "type": "table",
+      "caption": "Sample order error response (order created)",
+      "columns": [
+        "HTTP status code",
+        "HTTP status message",
+        "Error code",
+        "Error message"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "404",
+            "Not Found",
+            "1001",
+            "Invalid endpoint."
+          ]
+        },
+        {
+          "cells": [
+            "400",
+            "Bad Request",
+            "1002",
+            "Invalid or malformed argument."
+          ]
+        },
+        {
+          "cells": [
+            "400",
+            "Bad Request",
+            "1003",
+            "Argument length exceeds imposed limit."
+          ]
+        },
+        {
+          "cells": [
+            "400",
+            "Bad Request",
+            "1004",
+            "Missing required argument."
+          ]
+        },
+        {
+          "cells": [
+            "413",
+            "Request Entity Too Large",
+            "1005",
+            "Request length exceeds imposed limit."
+          ]
+        },
+        {
+          "cells": [
+            "429",
+            "Too Many Requests",
+            "1006",
+            "Rate limit exceeded."
+          ]
+        },
+        {
+          "cells": [
+            "500",
+            "Internal Server Error",
+            "1007",
+            "IQ servers responded with a business error."
+          ]
+        },
+        {
+          "cells": [
+            "500",
+            "Internal Server Error",
+            "1008",
+            "IQ servers responded with a technical error."
+          ]
+        },
+        {
+          "cells": [
+            "500",
+            "Internal Server Error",
+            "1009",
+            "IQ servers responded with an unexpected error."
+          ]
+        },
+        {
+          "cells": [
+            "502",
+            "Bad Gateway",
+            "1010",
+            "IQ servers produced an invalid response."
+          ]
+        },
+        {
+          "cells": [
+            "503",
+            "Gateway Timeout",
+            "1011",
+            "IQ servers did not produce a response before a timeout."
+          ]
+        },
+        {
+          "cells": [
+            "405",
+            "Method Not Allowed",
+            "1012",
+            "Method unsupported by endpoint (e.g., GET vs. POST)."
+          ]
+        },
+        {
+          "cells": [
+            "400",
+            "Bad Request",
+            "1013",
+            "Requesting anything other than ‘application/json’."
+          ]
+        },
+        {
+          "cells": [
+            "401",
+            "Unauthorized",
+            "1014",
+            "Missing authorization header."
+          ]
+        },
+        {
+          "cells": [
+            "400",
+            "Bad Request",
+            "1015",
+            "Malformed authorization header."
+          ]
+        },
+        {
+          "cells": [
+            "403",
+            "Forbidden",
+            "1016",
+            "Request is out-of-allowed OAuth scopes."
+          ]
+        },
+        {
+          "cells": [
+            "401",
+            "Unauthorized",
+            "1017",
+            "Access token is invalid."
+          ]
+        },
+        {
+          "cells": [
+            "404",
+            "Not Found",
+            "1018",
+            "Account number not found."
+          ]
+        },
+        {
+          "cells": [
+            "404",
+            "Not Found",
+            "1019",
+            "Symbol not found."
+          ]
+        },
+        {
+          "cells": [
+            "404",
+            "Not Found",
+            "1020",
+            "Order not found."
+          ]
+        },
+        {
+          "cells": [
+            "500",
+            "Internal Server Error",
+            "1021",
+            "Unexpected error (with undefined handling)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Downloads"
+    },
+    {
+      "type": "paragraph",
+      "text": "C ++"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcpp.exe)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "C #/Active X"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcsharp.exe)"
+          ]
+        }
+      ]
+    }
+  ]
+}

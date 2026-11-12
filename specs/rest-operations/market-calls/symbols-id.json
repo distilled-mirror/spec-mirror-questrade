@@ -1,0 +1,408 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/market-calls/symbols-id",
+  "title": "GET symbols/:id",
+  "summary": "Retrieves detailed information about one or more symbol.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "integer",
+            "Internal symbol identifier. Can occur in the ‘Location’ header only. Mutually exclusive with ‘ids’ parameter."
+          ]
+        },
+        {
+          "cells": [
+            "ids",
+            "Complex",
+            "Comma-separated list of symbol ids."
+          ]
+        },
+        {
+          "cells": [
+            "id",
+            "Integer",
+            "Internal symbol identifier"
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "names",
+            "Complex",
+            "Comma separated list of symbol names."
+          ]
+        },
+        {
+          "cells": [
+            "name",
+            "String",
+            "Symbol name"
+          ],
+          "level": 2
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Notes: Either list of ids or names can be specified, but not both."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "symbol",
+            "String",
+            "Symbol that follows Questrade symbology (e.g., \"TD.TO\")."
+          ]
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Symbol identifier"
+          ]
+        },
+        {
+          "cells": [
+            "prevDayClosePrice",
+            "Double",
+            "Closing trade price from the previous trading day."
+          ]
+        },
+        {
+          "cells": [
+            "highPrice52",
+            "Double",
+            "52-week high price."
+          ]
+        },
+        {
+          "cells": [
+            "lowPrice52",
+            "Double",
+            "52-week high price."
+          ]
+        },
+        {
+          "cells": [
+            "averageVol3Months",
+            "Integer",
+            "Average trading volume over trailing 3 months."
+          ]
+        },
+        {
+          "cells": [
+            "averageVol20Days",
+            "Integer",
+            "Average trading volume over trailing 20 days."
+          ]
+        },
+        {
+          "cells": [
+            "outstandingShares",
+            "Integer",
+            "Total number of shares outstanding."
+          ]
+        },
+        {
+          "cells": [
+            "eps",
+            "Double",
+            "Trailing 12-month earnings per share."
+          ]
+        },
+        {
+          "cells": [
+            "pe",
+            "Double",
+            "Trailing 12-month price to earnings ratio."
+          ]
+        },
+        {
+          "cells": [
+            "dividend",
+            "Double",
+            "Dividend amount per share."
+          ]
+        },
+        {
+          "cells": [
+            "yield",
+            "Double",
+            "Dividend yield (dividend / prevDayClosePrice)."
+          ]
+        },
+        {
+          "cells": [
+            "exDate",
+            "DateTime",
+            "Dividend ex-date."
+          ]
+        },
+        {
+          "cells": [
+            "marketCap",
+            "Double",
+            "Market capitalization (outstandingShares * prevDayClosePrice)."
+          ]
+        },
+        {
+          "cells": [
+            "optionType",
+            "Enumeration",
+            "Option type (e.g., \"Call\"). See [Option Type](/api/documentation/rest-operations/enumerations/enumerations#option-type) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "optionDurationType",
+            "Enumeration",
+            "Option duration type (e.g., \"Weekly\"). See [Option Duration Type](/api/documentation/rest-operations/enumerations/enumerations#option-duration-type) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "optionRoot",
+            "String",
+            "Option root symbol (e.g., \"MSFT\")."
+          ]
+        },
+        {
+          "cells": [
+            "optionContractDeliverables",
+            "Complex",
+            "Option contract deliverables."
+          ]
+        },
+        {
+          "cells": [
+            "underlyings",
+            "Complex",
+            "List of UnderlyingMultiplierPair records."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "UnderlyingMultiplierPair",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "multiplier",
+            "Integer",
+            "Number of shares deliverable per contract (e.g., 100)."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "underlyingSymbol",
+            "String",
+            "Underlying symbol for the deliverable (e.g., \"MSFT\")."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "underlyingSymbolId",
+            "String",
+            "Underlying symbol id for the deliverable (e.g., 2345343)."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "cashInLieu",
+            "Double",
+            "Amount of cash in lieu deliverable per contract."
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "optionExerciseType",
+            "Enumeration",
+            "Option exercise style (e.g., \"American\"). See [Option Exercise Type](/api/documentation/rest-operations/enumerations/enumerations#option-exercise-type) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "listingExchange",
+            "Enumeration",
+            "Primary listing exchange. See [Listing Exchange](/api/documentation/rest-operations/enumerations/enumerations#listing-exchange) section for the list of all listing exchanges."
+          ]
+        },
+        {
+          "cells": [
+            "description",
+            "String",
+            "Symbol description (e.g., \"Microsoft Corp.\")."
+          ]
+        },
+        {
+          "cells": [
+            "securityType",
+            "Enumeration",
+            "Security type (e.g., \"Stock\"). See [Security Type](/api/documentation/rest-operations/enumerations/enumerations#security-type) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "optionExpiryDate",
+            "Date time",
+            "Option expiry date."
+          ]
+        },
+        {
+          "cells": [
+            "dividendDate",
+            "Date time",
+            "Dividend declaration date."
+          ]
+        },
+        {
+          "cells": [
+            "optionStrikePrice",
+            "Double",
+            "Option strike price"
+          ]
+        },
+        {
+          "cells": [
+            "isQuotable",
+            "Boolean",
+            "Indicates whether the symbol is actively listed."
+          ]
+        },
+        {
+          "cells": [
+            "hasOptions",
+            "Boolean",
+            "Indicates whether the symbol is an underlying option."
+          ]
+        },
+        {
+          "cells": [
+            "currency",
+            "String",
+            "String Currency code (follows ISO format)."
+          ]
+        },
+        {
+          "cells": [
+            "minTicks",
+            "Complex",
+            "List of MinTickData records."
+          ]
+        },
+        {
+          "cells": [
+            "MinTickData",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "pivot",
+            "Double",
+            "Beginning of the interval for a given minimum price increment."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "minTick",
+            "Double",
+            "Minimum price increment."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "industrySector",
+            "Enumeration",
+            "Industry sector classification."
+          ]
+        },
+        {
+          "cells": [
+            "industryGroup",
+            "Enumeration",
+            "Industry group classification."
+          ]
+        },
+        {
+          "cells": [
+            "industrySubGroup",
+            "Enumeration",
+            "Industry subgroup classification."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/symbols/8049"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/symbols?ids=8049,..."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n    \"symbols\": [\n\t{\n\t\t\"symbol\": \"AAPL\",\n\t\t\"symbolId\": 8049,\n\t\t\"prevDayClosePrice\": 102.5, \n\t\t\"highPrice52\": 102.9, \n\t\t\"lowPrice52\": 63.89, \n\t\t\"averageVol3Months\": 43769680,\n\t\t\"averageVol20Days\": 12860370,\n\t\t\"outstandingShares\": 5987867000, \n\t\t\"eps\": 6.2,\n\t\t\"pe\": 16.54,\n\t\t\"dividend\": 0.47,\n\t\t\"yield\": 1.84,\n\t\t\"exDate\": \"2014-08-07T00:00:00.000000-04:00\", \n\t\t\"marketCap\": 613756367500, \n\t\t\"tradeUnit\": 1, \n\t\t\"optionType\": null,\n\t\t\"optionDurationType\": null, \n\t\t\"optionRoot\": \"\",\n\t\t\"optionContractDeliverables\": {\n\t\t\t\"underlyings\": [], \n\t\t\t\"cashInLieu\": 0 \n\t\t}, \n\t\t\"optionExerciseType\": null,\n\t\t\"listingExchange\": \"NASDAQ\", \n\t\t\"description\": \"APPLE INC\",\n\t\t\"securityType\": \"Stock\", \n\t\t\"optionExpiryDate\": null,\n\t\t\"dividendDate\": \"2014-08-14T00:00:00.000000-04:00\",\n\t\t\"optionStrikePrice\": null, \n\t\t\"isTradable\": true,\n\t\t\"isQuotable\": true,\n\t\t\"hasOptions\": true,\n\t\t\"minTicks\": [\n\t\t\t{\n\t\t\t\t\"pivot\": 0, \n\t\t\t\t\"minTick\": 0.0001\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"pivot\": 1, \n\t\t\t\t\"minTick\": 0.01\n\t\t\t}\n\t\t],\n             \"industrySector\": \"BasicMaterials\", \n             \"industryGroup\":  \"Steel\", \n            \"industrySubGroup\": \"Steel\"\n        \t},\n\t\t...\n\t]\n}"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/order-calls/accounts-id-orders-bracket",
+  "title": "POST accounts/:id/orders/bracket",
+  "summary": "Allows to (re)place or estimate impact of a bracket order against a certain account.\n\nThe responses are the same for all bracket order insert and replace calls as the responses for old order calls (including impact). OrderGroupID and orderClass will be filled out for bracket orders in response.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request",
+      "text": "Request"
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Name",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "Account number against which order is being submitted. Can occur in the 'Location' header only."
+          ]
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier."
+          ]
+        },
+        {
+          "cells": [
+            "primaryRoute",
+            "Enumeration",
+            "Primary order route (e.g., \"AUTO\")."
+          ]
+        },
+        {
+          "cells": [
+            "secondaryRoute",
+            "Enumeration",
+            "Secondary order route (e.g., \"NYSE\")."
+          ]
+        },
+        {
+          "cells": [
+            "components",
+            "Complex",
+            "List of bracket order components"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Data for each component of a bracket order."
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Name",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "orderId",
+            "Integer",
+            "Order ID of active order, or 0 for new order"
+          ]
+        },
+        {
+          "cells": [
+            "quantity",
+            "Double",
+            "Order quantity"
+          ]
+        },
+        {
+          "cells": [
+            "action",
+            "Enumeration",
+            "Order (e.g., \"Buy \"), required only on initial insertion\n\nSee [Order Action](/api/documentation/rest-operations/enumerations/enumerations#order-action) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "limitPrice",
+            "Double",
+            "Limit price"
+          ]
+        },
+        {
+          "cells": [
+            "stopPrice",
+            "Double",
+            "Stop price"
+          ]
+        },
+        {
+          "cells": [
+            "orderType",
+            "Enumeration",
+            "Order type (e.g., \"Market \").\n\nSee [Order Type](/api/documentation/rest-operations/enumerations/enumerations#order-type) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "timeInForce",
+            "Enumeration",
+            "Order duration (e.g., \"DAY \").\n\nSee [Order Duration](/api/documentation/rest-operations/enumerations/enumerations#order-time-in-force) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "orderClass",
+            "Enumeration",
+            "For bracket order describes the type of component\n\nSee [Order Class](/api/documentation/rest-operations/enumerations/enumerations#order-class) section for all allowed values"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "New Bracket"
+    },
+    {
+      "type": "paragraph",
+      "text": "Primary and only one of the exit orders are required."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST https://api01.iq.questrade.com/v1/accounts/90000004/orders/bracket\n\nPOST https://api01.iq.questrade.com/v1/accounts/90000004/orders/bracket/impact\n\n{\n     \"symbolId\": 27426,\n     \"primaryRoute\": \"AUTO\",\n     \"secondaryRoute\": \"AUTO\",\n     \"components\": [\n          {\n               \"limitPrice\": 2,\n               \"stopPrice\":  3,\n               \"orderType\": \"StopLimit\",\n               \"timeInForce\": \"Day\",\n               \"orderClass\": \"Primary\",\n               \"quantity\": 100,\n               \"action\": \"Buy\"\n          },\n          {\n               \"limitPrice\": 1000,\n               \"orderType\":  \"Limit\",\n               \"timeInForce\":  \"Day\",\n               \"orderClass\": \"Limit\",\n               \"quantity\": 100,\n               \"action\": \"Sell\"\n          },\n          {\n               \"limitPrice\": 0.9,\n               \"stopPrice\": 1,\n               \"orderType\": \"StopLimit\",\n               \"timeInForce\": \"Day\",\n               \"orderClass\":  \"StopLoss\",\n               \"quantity\":  100,\n               \"action\": \"Sell\"\n          }\n     ]\n}"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "New bracket on existing order"
+    },
+    {
+      "type": "paragraph",
+      "text": "Primary orderId and one of the exit orders are required."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "{\nPOST https://api01.iq.questrade.com/v1/accounts/90000004/orders/bracket\n\nPOST https://api01.iq.questrade.com/v1/accounts/90000004/orders/bracket/impact\n\n{\n     \"symbolId\":27426 ,\n     \"primaryRoute\": \"AUTO\",\n     \"secondaryRoute\": \"AUTO\",\n     \"components\": [\n        {\n             \"orderId\": 123456789,\n             \"orderClass\": \"Primary\"\n        },\n        {\n             \"limitPrice\": 1000,\n             \"orderType\": \"Limit\",\n             \"timeInForce\": \"Day\",\n             \"orderClass\": \"Limit\",\n             \"quantity\": 100,\n             \"action\": \"Sell\"\n        },\n        {\n             \"limitPrice\": 0.9,\n             \"stopPrice\": 1,\n             \"orderType\": \"StopLimit\",\n             \"timeInForce\": \"Day\",\n             \"orderClass\":\"StopLoss\",\n             \"quantity\": 100,\n             \"action\": \"Sell\"\n        }\n    ]\n}"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "new-bracket-on-position",
+      "text": "New bracket on position"
+    },
+    {
+      "type": "paragraph",
+      "text": "Both exit orders are required otherwise just place a single order."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "{\nPOST https://api01.iq.questrade.com/v1/accounts/90000004/orders/bracket\n\nPOST https://api01.iq.questrade.com/v1/accounts/90000004/orders/bracket/impact\n\n{\n     \"symbolId\": 27426,\n     \"primaryRoute\": \"AUTO\",\n     \"secondaryRoute\":\"AUTO\",\n     \"components\": [\n        {\n             \"limitPrice\": 1000,\n             \"orderType\": \"Limit\",\n             \"timeInForce\": \"Day\",\n             \"orderClass\": \"Limit\",\n             \"quantity\": 100,\n             \"action\": \"Sell\"\n        },\n        {\n             \"limitPrice\": 0.9,\n             \"stopPrice\": 1,\n             \"orderType\":  \"StopLimit\",\n             \"timeInForce\":  \"Day\",\n             \"orderClass\":  \"StopLoss\",\n             \"quantity\": 100,\n             \"action\": \"Sell\"\n        }\n    ]\n}"
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/account-calls/accounts-id-executions",
+  "title": "GET accounts/:id/executions",
+  "summary": "Retrieves executions for a specific account.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "Account number. Can occur in the 'location' header only."
+          ]
+        },
+        {
+          "cells": [
+            "startTime",
+            "DateTime",
+            "Start of time range in ISO format. By default – start of today, 12:00am."
+          ]
+        },
+        {
+          "cells": [
+            "endTime",
+            "DateTime",
+            "End of time range in ISO format. By default – end of today, 11:59pm"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "executions",
+            "Complex",
+            "List of execution records."
+          ]
+        },
+        {
+          "cells": [
+            "Execution",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "symbol",
+            "String",
+            "Execution symbol."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "quantity",
+            "Integer",
+            "Execution quantity."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "side",
+            "String",
+            "Client side of the order to which execution belongs. See[Client Order Side](/api/documentation/rest-operations/enumerations/enumerations#order-side) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "price",
+            "Double",
+            "Execution price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "id",
+            "Double",
+            "Internal identifier of the execution."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "orderId",
+            "Integer",
+            "Internal identifier of the order to which the execution belongs."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "orderChainId",
+            "Integer",
+            "Internal identifier of the order chain to which the execution belongs."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "exchangeExecId",
+            "string",
+            "Identifier of the execution at the market where it originated."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "timestamp",
+            "DateTime",
+            "Execution timestamp."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "notes",
+            "String",
+            "Manual notes that may have been entered by Trade Desk staff."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "venue",
+            "String",
+            "Trading venue where execution originated."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "totalCost",
+            "Double",
+            "Execution cost (price x quantity)."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "orderPlacementCommission",
+            "Double",
+            "Questrade commission for orders placed with Trade Desk."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "commission",
+            "Double",
+            "Questrade commission."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "executionFee",
+            "Double",
+            "Liquidity fee charged by execution venue."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "secFee",
+            "Double",
+            "SEC fee charged on all sales of US securities."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "canadianExecutionFee",
+            "Integer",
+            "Additional execution fee charged by TSX (if applicable)."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "parentId",
+            "Integer",
+            "Internal identifierof the parent order."
+          ],
+          "level": 3
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/accounts/26598145/executions"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n    \"executions\": [\n         {\n              \"symbol\": \"AAPL\",\n              \"symbolId\": 8049,\n              \"quantity\":   10,\n              \"side\":  \"Buy\",\n              \"price\": 536.87,\n              \"id\": 53817310,\n              \"orderId\": 177106005,\n              \"orderChainId\": 17710600,\n              \"exchangeExecId\": \"XS1771060050147\",\n              \"timestam\":  2014-03-31T13:38:29.000000-04:00,\n              \"notes\":  \"\",\n              \"venue\":  \"LAMP\",\n              \"totalCost\":   5368.7,\n              \"orderPlacementCommission\": 0,\n              \"commission\":    4.95,\n              \"executionFee\": 0,\n              \"secFee\": 0,\n              \"canadianExecutionFee\": 0,\n              \"parentId\": 0,\n           }\n      ]\n }"
+    }
+  ]
+}

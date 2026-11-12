@@ -1,0 +1,152 @@
+{
+  "url": "https://www.questrade.com/api/documentation/authorization",
+  "title": "Authorization",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "The Questrade API allows you to get permission from a Questrade user to access user data on their behalf. Depending on your application needs it can request to access the user's account data, market data or place orders."
+    },
+    {
+      "type": "paragraph",
+      "text": "Questrade API supports only the following Authorization flows:"
+    },
+    {
+      "type": "listItem",
+      "text": "Authorization Code: used with server-side Applications (includes Web applications with server side support"
+    },
+    {
+      "type": "listItem",
+      "text": "Implicit: used with Mobile Apps or Web applications (that run solely on the user's device)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Other flows as Resource Owner Password Credentials or Client Credentials are not supported due to security reasons."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "authorization-code-flow",
+      "text": "Authorization Code flow:"
+    },
+    {
+      "type": "listItem",
+      "text": "Register your personal application in API Center to get an API key and secret. Your API consumer key is your client_id and consumer secret is your client_secret. (NOTE: Client secret is optional and can be omitted in authorization flow)"
+    },
+    {
+      "type": "listItem",
+      "text": "Your application requests authorization by redirecting your user to https://login.questrade.com/oauth2/authorize with your client_id, response_type set to 'code' and the URL the user should be redirected back to after the authorization process (redirect_uri). Scopes can also be passed (scope) in a comma-delimited list to request further permissions. Enter the following URL into your browser or direct your users to it for authentication: https://login.questrade.com/oauth2/authorize?client_id=<client_id> &response_type=code&redirect_uri=https://www.example.com"
+    },
+    {
+      "type": "listItem",
+      "text": "Questrade will prompt for a login box, where user will need to enter credential to continue."
+    },
+    {
+      "type": "listItem",
+      "text": "Next page, will prompt with authorization box asking the user whether it's okay to give access to your application."
+    },
+    {
+      "type": "listItem",
+      "text": "If the user authorizes your application, Questrade redirects the user back to the redirect URI you specified with a verification token passed as a query parameter named code. This code can then be exchanged for an access token. http://www.example.com/?code=<code>"
+    },
+    {
+      "type": "listItem",
+      "text": "To exchange the code for an access token, you must send a POST request to https://login.questrade.com/oauth2/token with the code, client_id, and redirect_uri. https://login.questrade.com/oauth2/token?client_id=<client id=\"\"> &code=<code>&grant_type=authorization_code&redirect_uri=http://www.example.com"
+    },
+    {
+      "type": "listItem",
+      "text": "The response will return with an access_token, scope, user_id and username."
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": " \n   { \n       \"access_token\": \"C3lTUKuNQrAAmSD/TPjuV/HI7aNrAwDp\", \n       \"token_type\": \"Bearer\" ,\n       \"expires_in\":  300 ,\n       \"refresh_token\":  \"aSBe7wAAdx88QTbwut0tiu3SYic3ox8F\",\n       \"api_server\":  https://api01.iq.questrade.com\"  \n   }"
+    },
+    {
+      "type": "paragraph",
+      "text": "8. Your application can now use the access token returned to make authenticated API requests to the Questrade API. The token can be passed to API endpoints either through a query parameter or with an HTTP Authorization header (see request types below). You may want to store the refresh token, so that you can request new access token for next session or once access token expires"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "implicit-grant-o-auth-flow",
+      "text": "Implicit Grant OAuth flow:"
+    },
+    {
+      "type": "listItem",
+      "text": "Register your personal application in API Center to get an API key and secret. Your API consumer key is your client_id and you API consumer secret is your client_secret."
+    },
+    {
+      "type": "listItem",
+      "text": "Your application requests authorization by redirecting your user to https://login.questrade.com/oauth2/authorize with your client_id, response_type set to 'token' and the URL the user should be redirected back to after the authorization process (redirect_uri). Scopes can also be passed (scope) in a comma-delimited list to request further permissions. https://login.questrade.com/oauth2/authorize?client_id= <client id=\"\"> &response_type=token&redirect_uri=https://www.example.com"
+    },
+    {
+      "type": "listItem",
+      "text": "Questrade will prompt for a login box, where user will need to enter credentials to continue."
+    },
+    {
+      "type": "listItem",
+      "text": "Next page, will prompt with authorization box asking the user whether it's okay to give access to your application."
+    },
+    {
+      "type": "listItem",
+      "text": "If the user authorizes your application, Questrade redirects the user back to the redirect URI you with the access and refresh tokens passed as a URL hash parameters. https://www.example.com/#access_token=...&refresh_token=...&token_type= Bearer&expires_in=1800&api_server=https://api01.iq.questrade.com/"
+    },
+    {
+      "type": "listItem",
+      "text": "If your application is pure Javascript, the token can be easily parsed from the URL. If your application is a native phone application then perform the flow in an embedded webview, redirecting the user to a dummy website or custom URL. The token can then be retrieved from the URL and the browser can be closed. Your application can now use the access token returned to make authenticated API requests to the Questrade API."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Downloads"
+    },
+    {
+      "type": "paragraph",
+      "text": "C ++"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcpp.exe)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "C #/Active X"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcsharp.exe)"
+          ]
+        }
+      ]
+    }
+  ]
+}

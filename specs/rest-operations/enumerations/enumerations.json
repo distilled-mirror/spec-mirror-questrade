@@ -1,0 +1,1269 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/enumerations/enumerations",
+  "title": "Enumerations",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "currency",
+      "text": "Currency"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported currency codes."
+    },
+    {
+      "type": "table",
+      "caption": "Currency",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "USD",
+            "US dollar."
+          ]
+        },
+        {
+          "cells": [
+            "CAD",
+            "Canadian dollar."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "listing-exchange",
+      "text": "Listing Exchange"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported listing exchanges."
+    },
+    {
+      "type": "table",
+      "caption": "Listing Exchange",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "TSX",
+            "Toronto Stock Exchange."
+          ]
+        },
+        {
+          "cells": [
+            "TSXV",
+            "Toronto Venture Exchange."
+          ]
+        },
+        {
+          "cells": [
+            "CNSX",
+            "Canadian National Stock Exchange."
+          ]
+        },
+        {
+          "cells": [
+            "MX",
+            "Montreal Exchange."
+          ]
+        },
+        {
+          "cells": [
+            "NASDAQ",
+            "NASDAQ."
+          ]
+        },
+        {
+          "cells": [
+            "NYSE",
+            "New York Stock Exchange."
+          ]
+        },
+        {
+          "cells": [
+            "NYSEAM",
+            "NYSE AMERICAN"
+          ]
+        },
+        {
+          "cells": [
+            "ARCA",
+            "NYSE Arca."
+          ]
+        },
+        {
+          "cells": [
+            "OPRA",
+            "Option Reporting Authority."
+          ]
+        },
+        {
+          "cells": [
+            "PinkSheets",
+            "Pink Sheets."
+          ]
+        },
+        {
+          "cells": [
+            "OTCBB",
+            "OTC Bulletin Board."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "account-type",
+      "text": "Account Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported user account types."
+    },
+    {
+      "type": "table",
+      "caption": "Account Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Cash",
+            "Cash account."
+          ]
+        },
+        {
+          "cells": [
+            "Margin",
+            "Margin account."
+          ]
+        },
+        {
+          "cells": [
+            "TFSA",
+            "Tax Free Savings Account."
+          ]
+        },
+        {
+          "cells": [
+            "RRSP",
+            "Registered Retirement Savings Plan."
+          ]
+        },
+        {
+          "cells": [
+            "FHSA",
+            "First Home Savings Account."
+          ]
+        },
+        {
+          "cells": [
+            "SRRSP",
+            "Spousal RRSP."
+          ]
+        },
+        {
+          "cells": [
+            "LRRSP",
+            "Locked-In RRSP."
+          ]
+        },
+        {
+          "cells": [
+            "LIRA",
+            "Locked-In Retirement Account."
+          ]
+        },
+        {
+          "cells": [
+            "LIF",
+            "Life Income Fund."
+          ]
+        },
+        {
+          "cells": [
+            "RIF",
+            "Retirement Income Fund."
+          ]
+        },
+        {
+          "cells": [
+            "SRIF",
+            "Spousal RIF."
+          ]
+        },
+        {
+          "cells": [
+            "LRIF",
+            "Locked-In RIF."
+          ]
+        },
+        {
+          "cells": [
+            "RRIF",
+            "Registered RIF."
+          ]
+        },
+        {
+          "cells": [
+            "PRIF",
+            "Prescribed RIF."
+          ]
+        },
+        {
+          "cells": [
+            "RESP",
+            "Individual Registered Education Savings Plan."
+          ]
+        },
+        {
+          "cells": [
+            "FRESP",
+            "Family RESP."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "client-account-type",
+      "text": "Client Account Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported account client types."
+    },
+    {
+      "type": "table",
+      "caption": "Client Account Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Individual",
+            "Account held by an individual."
+          ]
+        },
+        {
+          "cells": [
+            "Joint",
+            "Account held jointly by several individuals (e.g., spouses)."
+          ]
+        },
+        {
+          "cells": [
+            "Informal Trust",
+            "Non-individual account held by an informal trust."
+          ]
+        },
+        {
+          "cells": [
+            "Corporation",
+            "Non-individual account held by a corporation."
+          ]
+        },
+        {
+          "cells": [
+            "Formal Trust",
+            "Non-individual account held by a formal trust."
+          ]
+        },
+        {
+          "cells": [
+            "Partnership",
+            "Non-individual account held by a partnership."
+          ]
+        },
+        {
+          "cells": [
+            "Sole Proprietorship",
+            "Non-individual account held by a sole proprietorship."
+          ]
+        },
+        {
+          "cells": [
+            "Family",
+            "Account held by a family."
+          ]
+        },
+        {
+          "cells": [
+            "Joint and Informal Trust",
+            "Non-individual account held by a joint and informal trust."
+          ]
+        },
+        {
+          "cells": [
+            "Institution",
+            "Non-individual account held by an institution."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "account-status",
+      "text": "Account Status"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported account status values."
+    },
+    {
+      "type": "table",
+      "caption": "Account Status",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type"
+          ]
+        },
+        {
+          "cells": [
+            "Active"
+          ]
+        },
+        {
+          "cells": [
+            "Suspended (Closed)"
+          ]
+        },
+        {
+          "cells": [
+            "Suspended (View Only)"
+          ]
+        },
+        {
+          "cells": [
+            "Liquidate Only"
+          ]
+        },
+        {
+          "cells": [
+            "Closed"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "tick-type",
+      "text": "Tick Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported market data tick types."
+    },
+    {
+      "type": "table",
+      "caption": "Tick Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Up",
+            "Designates an uptick."
+          ]
+        },
+        {
+          "cells": [
+            "Down",
+            "Designates a downtick."
+          ]
+        },
+        {
+          "cells": [
+            "Equal",
+            "Designates a tick that took place at the same price as a previous one."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "option-type",
+      "text": "Option Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported option types."
+    },
+    {
+      "type": "table",
+      "caption": "Option Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Call",
+            "Call option."
+          ]
+        },
+        {
+          "cells": [
+            "Put",
+            "Put option."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "option-duration-type",
+      "text": "Option Duration Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported option duration types."
+    },
+    {
+      "type": "table",
+      "caption": "Option Duration Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Weekly",
+            "Weekly expiry cycle."
+          ]
+        },
+        {
+          "cells": [
+            "Monthly",
+            "Monthly expiry cycle."
+          ]
+        },
+        {
+          "cells": [
+            "Quarterly",
+            "Quarterly expiry cycle."
+          ]
+        },
+        {
+          "cells": [
+            "LEAP",
+            "Long-term Equity Appreciation contracts."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "option-exercise-type",
+      "text": "Option Exercise Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported option exercise types."
+    },
+    {
+      "type": "table",
+      "caption": "Option Exercise Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "American",
+            "American option."
+          ]
+        },
+        {
+          "cells": [
+            "European",
+            "European option."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "security-type",
+      "text": "Security Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported security types."
+    },
+    {
+      "type": "table",
+      "caption": "Security Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Stock",
+            "Common and preferred equities, ETFs, ETNs, units, ADRs, etc."
+          ]
+        },
+        {
+          "cells": [
+            "Option",
+            "Equity and index options."
+          ]
+        },
+        {
+          "cells": [
+            "Bond",
+            "Debentures, notes, bonds, both corporate and government."
+          ]
+        },
+        {
+          "cells": [
+            "Right",
+            "Equity or bond rights and warrants."
+          ]
+        },
+        {
+          "cells": [
+            "Gold",
+            "Physical gold (coins, wafers, bars)."
+          ]
+        },
+        {
+          "cells": [
+            "MutualFund",
+            "Canadian or US mutual funds."
+          ]
+        },
+        {
+          "cells": [
+            "Index",
+            "Stock indices (e.g., Dow Jones)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-state-filter-type",
+      "text": "Order State Filter Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported order state filter types."
+    },
+    {
+      "type": "table",
+      "caption": "Order State Filter Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "All",
+            "Includes all orders, regardless of their state."
+          ]
+        },
+        {
+          "cells": [
+            "Open",
+            "Includes only orders that are still open."
+          ]
+        },
+        {
+          "cells": [
+            "Closed",
+            "Includes only orders that are already closed."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-action",
+      "text": "Order Action"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported order side values."
+    },
+    {
+      "type": "table",
+      "caption": "Order Action",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Buy",
+            "Designates an order to purchase a security."
+          ]
+        },
+        {
+          "cells": [
+            "Sell",
+            "Designates an order to dispose a security."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-side",
+      "text": "Order Side"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported client order side values."
+    },
+    {
+      "type": "table",
+      "caption": "Order Side",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Buy",
+            "Buy"
+          ]
+        },
+        {
+          "cells": [
+            "Sell",
+            "Sell"
+          ]
+        },
+        {
+          "cells": [
+            "Short",
+            "Sell short."
+          ]
+        },
+        {
+          "cells": [
+            "Cov",
+            "Cover the short."
+          ]
+        },
+        {
+          "cells": [
+            "BTO",
+            "Buy-To-Open."
+          ]
+        },
+        {
+          "cells": [
+            "STC",
+            "Sell-To-Close."
+          ]
+        },
+        {
+          "cells": [
+            "STO",
+            "Sell-To-Open."
+          ]
+        },
+        {
+          "cells": [
+            "BTC",
+            "Buy-To-Close."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-type",
+      "text": "Order Type"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported order types."
+    },
+    {
+      "type": "table",
+      "caption": "Order Type",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type"
+          ]
+        },
+        {
+          "cells": [
+            "Market"
+          ]
+        },
+        {
+          "cells": [
+            "Limit"
+          ]
+        },
+        {
+          "cells": [
+            "Stop"
+          ]
+        },
+        {
+          "cells": [
+            "StopLimit"
+          ]
+        },
+        {
+          "cells": [
+            "TrailStopInPercentage"
+          ]
+        },
+        {
+          "cells": [
+            "TrailStopInDollar"
+          ]
+        },
+        {
+          "cells": [
+            "TrailStopLimitInPercentage"
+          ]
+        },
+        {
+          "cells": [
+            "TrailStopLimitInDollar"
+          ]
+        },
+        {
+          "cells": [
+            "LimitOnOpen"
+          ]
+        },
+        {
+          "cells": [
+            "LimitOnClose"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-time-in-force",
+      "text": "Order Time-In-Force"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported order Time-In-Force instructions."
+    },
+    {
+      "type": "table",
+      "caption": "Order Time-In-Force",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type"
+          ]
+        },
+        {
+          "cells": [
+            "Day"
+          ]
+        },
+        {
+          "cells": [
+            "GoodTillCanceled"
+          ]
+        },
+        {
+          "cells": [
+            "GoodTillExtendedDay"
+          ]
+        },
+        {
+          "cells": [
+            "GoodTillDate"
+          ]
+        },
+        {
+          "cells": [
+            "ImmediateOrCancel"
+          ]
+        },
+        {
+          "cells": [
+            "FillOrKill"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-state",
+      "text": "Order State"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported order states."
+    },
+    {
+      "type": "table",
+      "caption": "Order State",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type"
+          ]
+        },
+        {
+          "cells": [
+            "Failed"
+          ]
+        },
+        {
+          "cells": [
+            "Pending"
+          ]
+        },
+        {
+          "cells": [
+            "Accepted"
+          ]
+        },
+        {
+          "cells": [
+            "Rejected"
+          ]
+        },
+        {
+          "cells": [
+            "CancelPending"
+          ]
+        },
+        {
+          "cells": [
+            "Canceled"
+          ]
+        },
+        {
+          "cells": [
+            "PartialCanceled"
+          ]
+        },
+        {
+          "cells": [
+            "Partial"
+          ]
+        },
+        {
+          "cells": [
+            "Executed"
+          ]
+        },
+        {
+          "cells": [
+            "ReplacePending"
+          ]
+        },
+        {
+          "cells": [
+            "Replaced"
+          ]
+        },
+        {
+          "cells": [
+            "Stopped"
+          ]
+        },
+        {
+          "cells": [
+            "Suspended"
+          ]
+        },
+        {
+          "cells": [
+            "Expired"
+          ]
+        },
+        {
+          "cells": [
+            "Queued"
+          ]
+        },
+        {
+          "cells": [
+            "Triggered"
+          ]
+        },
+        {
+          "cells": [
+            "Activated"
+          ]
+        },
+        {
+          "cells": [
+            "PendingRiskReview"
+          ]
+        },
+        {
+          "cells": [
+            "ContingentOrder"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "historical-data-granularity",
+      "text": "Historical Data Granularity"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported order execution status values."
+    },
+    {
+      "type": "table",
+      "caption": "Historical Data Granularity",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "OneMinute",
+            "One candlestick per 1 minute."
+          ]
+        },
+        {
+          "cells": [
+            "TwoMinutes",
+            "One candlestick per 2 minutes."
+          ]
+        },
+        {
+          "cells": [
+            "ThreeMinutes",
+            "One candlestick per 3 minutes."
+          ]
+        },
+        {
+          "cells": [
+            "FourMinutes",
+            "One candlestick per 4 minutes."
+          ]
+        },
+        {
+          "cells": [
+            "FiveMinutes",
+            "One candlestick per 5 minutes."
+          ]
+        },
+        {
+          "cells": [
+            "TenMinutes",
+            "One candlestick per 10 minutes."
+          ]
+        },
+        {
+          "cells": [
+            "FifteenMinutes",
+            "One candlestick per 15 minutes."
+          ]
+        },
+        {
+          "cells": [
+            "TwentyMinutes",
+            "One candlestick per 20 minutes."
+          ]
+        },
+        {
+          "cells": [
+            "HalfHour",
+            "One candlestick per 30 minutes."
+          ]
+        },
+        {
+          "cells": [
+            "OneHour",
+            "One candlestick per 1 hour."
+          ]
+        },
+        {
+          "cells": [
+            "TwoHours",
+            "One candlestick per 2 hours."
+          ]
+        },
+        {
+          "cells": [
+            "FourHours",
+            "One candlestick per 4 hours."
+          ]
+        },
+        {
+          "cells": [
+            "OneDay",
+            "One candlestick per 1 day."
+          ]
+        },
+        {
+          "cells": [
+            "OneWeek",
+            "One candlestick per 1 week."
+          ]
+        },
+        {
+          "cells": [
+            "OneMonth",
+            "One candlestick per 1 month."
+          ]
+        },
+        {
+          "cells": [
+            "OneYear",
+            "One candlestick per 1 year."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "order-class",
+      "text": "Order Class"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table specifies all supported bracket order components."
+    },
+    {
+      "type": "table",
+      "caption": "Order Class",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "Primary",
+            "Primary order"
+          ]
+        },
+        {
+          "cells": [
+            "Limit",
+            "Profit exit order"
+          ]
+        },
+        {
+          "cells": [
+            "StopLoss",
+            "Loss exit order"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "strategy-types",
+      "text": "Strategy Types"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following types of strategies are supported for multi-leg strategy orders"
+    },
+    {
+      "type": "table",
+      "caption": "Strategy Types",
+      "columns": [],
+      "rows": [
+        {
+          "cells": [
+            "Type",
+            "Description"
+          ]
+        },
+        {
+          "cells": [
+            "CoveredCall",
+            "Covered Call"
+          ]
+        },
+        {
+          "cells": [
+            "MarriedPuts",
+            "Married Put"
+          ]
+        },
+        {
+          "cells": [
+            "VerticalCallSpread",
+            "Vertical Call"
+          ]
+        },
+        {
+          "cells": [
+            "VerticalPutSpread",
+            "Vertical Put"
+          ]
+        },
+        {
+          "cells": [
+            "CalendarCallSpread",
+            "Calendar Call"
+          ]
+        },
+        {
+          "cells": [
+            "CalendarPutSpread",
+            "Calendar Put"
+          ]
+        },
+        {
+          "cells": [
+            "DiagonalCallSpread",
+            "Diagonal Call"
+          ]
+        },
+        {
+          "cells": [
+            "DiagonalPutSpread",
+            "Diagonal Put"
+          ]
+        },
+        {
+          "cells": [
+            "Collar",
+            "Collar"
+          ]
+        },
+        {
+          "cells": [
+            "Straddle",
+            "Straddle"
+          ]
+        },
+        {
+          "cells": [
+            "Strangle",
+            "Strangle"
+          ]
+        },
+        {
+          "cells": [
+            "ButterflyCall",
+            "Butterfly Call"
+          ]
+        },
+        {
+          "cells": [
+            "ButterflyPut",
+            "Butterfly Put"
+          ]
+        },
+        {
+          "cells": [
+            "IronButterfly",
+            "Iron Butterfly"
+          ]
+        },
+        {
+          "cells": [
+            "CondorCall",
+            "Condor"
+          ]
+        },
+        {
+          "cells": [
+            "Custom",
+            "Custom, or user defined"
+          ]
+        }
+      ]
+    }
+  ]
+}

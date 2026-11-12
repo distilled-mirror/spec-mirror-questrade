@@ -1,0 +1,292 @@
+{
+  "url": "https://www.questrade.com/api/documentation/security",
+  "title": "Security",
+  "summary": "The security measures implemented by Questrade support the OAuth 2.0 version security protocol. Any OAuth library can be used to make requests against the Questrade API.",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Questrade only allows API requests via HTTPS (TLS) and refuse connections when accessed via HTTP. In addition, the required HTTP method (GET, POST etc.) must also be defined."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "obtaining-a-refresh-token",
+      "text": "Obtaining a refresh token"
+    },
+    {
+      "type": "paragraph",
+      "text": "To make an authenticated call via your API application:"
+    },
+    {
+      "type": "listItem",
+      "text": "In the API section of the Questrade security center, register your API application and obtain a client ID (an alpha-numeric identifier that Questrade assigns to a registered application)."
+    },
+    {
+      "type": "listItem",
+      "text": "Generate a refresh token for your API application."
+    },
+    {
+      "type": "listItem",
+      "text": "Redeem the refresh token for an access token."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "obtaining-an-access-token",
+      "text": "Obtaining an access token"
+    },
+    {
+      "type": "paragraph",
+      "text": "Once you have a refresh token, you can redeem it for an access token to make authenticated calls through your API application. Redeeming the authorization code requires making a request to the access token endpoint using the following request parameters:"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "grant_type",
+            "String",
+            "Always set to “refresh_token”."
+          ]
+        },
+        {
+          "cells": [
+            "refresh_token",
+            "String",
+            "Refresh token you receive from the security centre."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "access_token",
+            "String",
+            "Access token for making authenticated calls."
+          ]
+        },
+        {
+          "cells": [
+            "token_type",
+            "String",
+            "Type of token (always set to “Bearer”)."
+          ]
+        },
+        {
+          "cells": [
+            "expires_in",
+            "Integer",
+            "Duration of the time token in which it became active (in seconds)."
+          ]
+        },
+        {
+          "cells": [
+            "api_server",
+            "String",
+            "URL of the API server that the client application should contact."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST /oauth2/token HTTP/1.1\n  Host: https://login.questrade.com\n  grant_type=refresh_token&refresh_token=p4VTj45GhS8lY7aFoKDNZxB8yQHMOr+f"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n         \"access_token\": \"p4VTj45GhS8lY7aFoKDNZxB8yQHMOr+f\",\n         \"token_type\": \"Bearer\" ,\n         \"expires_in\": 1800, \n         \"refresh_token\": \"aSBe7wAAdx88QTbwut0tiu3SYic3ox8F\" ,\n         \"api_server\": \"https://api01.iq.questrade.com/v1\" \n      }"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "revoking-authorization",
+      "text": "Revoking authorization"
+    },
+    {
+      "type": "paragraph",
+      "text": "To revoke authorization, you can do one of the following:"
+    },
+    {
+      "type": "listItem",
+      "text": "Go to API Centre > Personal applications, and click Revoke to immediately expire the token that was issued previously or click Delete to delete the personal app."
+    },
+    {
+      "type": "listItem",
+      "text": "Use the revoke endpoint to revoke the authorization from your application code as per the example below: Revoke endpoint URL:[https://login.questrade.com/oauth2/revoke (opens in a new tab)](https://login.questrade.com/oauth2/revoke)"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Revoke endpoint example"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST /oauth2/revoke HTTP/1.1\n  Host: https://login.questrade.com\n  Content-Type: application/x-www-form-urlencoded\n  token=p4VTj45GhS8lY7aFoKDNZxB8yQHMOr+f"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "making-an-authorized-request",
+      "text": "Making an authorized request"
+    },
+    {
+      "type": "paragraph",
+      "text": "Authorized requestes can be made toward API servers. The URL of the API servers will be provided to your application as a response to every access token request you make. Once your application obtains an access token and URL of proxy server to contact, it can then make authenticated calls on behalf of the user that authorized the application using a number of REST endpoints."
+    },
+    {
+      "type": "paragraph",
+      "text": "Your API application must pass the access token in the “Authorization” HTTP header as described in the sample request below:"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample authorized request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET /v1/accounts HTTP/1.1\n   Host: https://api01.iq.questrade.com\n   Authorization: Bearer p4VTj45GhS8lY7aFoKDNZxB8yQHMOr+f"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "IQ API OAuth scopes"
+    },
+    {
+      "type": "paragraph",
+      "text": "As part of its OAuth 2.0 implementation, IQ API defines OAuth scopes – permissions that the account holders grants to the authorized API client application. Each API call belongs to one and only scope."
+    },
+    {
+      "type": "paragraph",
+      "text": "The following table describes scopes that the API provides and the mapping of API calls to these scopes."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Release notes:"
+    },
+    {
+      "type": "table",
+      "caption": "Release notes:",
+      "columns": [
+        "Scope",
+        "Scope identifier",
+        "API calls"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Read account information",
+            "read_acc",
+            "GET time\nGET accounts\nGET accounts/:id/positions\nGET accounts/:id/balances\nGET accounts/:id/executions\nGET accounts/:id/orders\nGET symbols/:id\nGET symbols/:id/options\nGET markets"
+          ]
+        },
+        {
+          "cells": [
+            "Read market data",
+            "read_md",
+            "GET markets/quotes/:id\nGET markets/candles/:id"
+          ]
+        },
+        {
+          "cells": [
+            "Trade (partner developers only)",
+            "trade",
+            "POST accounts/:id/orders[/:orderId]\nPOST accounts/:id/orders[:/orderId]/impact\nDELETE accounts/:id/orders/:orderId"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Downloads"
+    },
+    {
+      "type": "paragraph",
+      "text": "C ++"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcpp.exe)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "C #/Active X"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcsharp.exe)"
+          ]
+        }
+      ]
+    }
+  ]
+}

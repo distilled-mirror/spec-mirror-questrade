@@ -1,0 +1,154 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/market-calls/symbols-search",
+  "title": "GET symbols/search",
+  "summary": "Retrieves symbol(s) using several search criteria.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "prefix",
+            "String",
+            "Prefix of a symbol or any word in the description."
+          ]
+        },
+        {
+          "cells": [
+            "offset",
+            "Integer",
+            "Offset in number of records from the beginning of a result set."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "symbols",
+            "Complex",
+            "List of EquitySymbol elements."
+          ]
+        },
+        {
+          "cells": [
+            "EquitySymbol",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "symbol",
+            "String",
+            "Symbol name."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal unique symbol identifier."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "description",
+            "String",
+            "Symbol description."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "securityType",
+            "Enumeration",
+            "Symbol security type. See [Security Type](/api/documentation/rest-operations/enumerations/enumerations#security-type) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "listingExchange",
+            "Enumeration",
+            "Primary listing exchange of the symbol. See [Listing Exchange](/api/documentation/rest-operations/enumerations/enumerations#listing-exchange) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isQuotable",
+            "Boolean",
+            "Whether a symbol has live market data."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isTradable",
+            "Boolean",
+            "Whether a symbol is tradable on the platform."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "currency",
+            "String",
+            "Symbol currency (ISO format)."
+          ],
+          "level": 3
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/symbols/search?prefix=BMO"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n\t\"symbol\": [\n\t\t{\n\t\t\t\"symbol\":  \"BMO\",\n\t\t\t\"symbolId\":  9292,\n\t\t\t\"description\":  \"BANK OF MONTREAL\",\n\t\t\t\"securityType\": \"Stock\",\n\t\t\t\"listingExchange\": \"NYSE\",\n\t\t\t\"isTradable\":  true,\n\t\t\t\"isQuotable\":  true,\n\t\t\t\"currency\":  \"USD\"\n\t\t},\n\t\t{\n\t\t\t\"symbol\":  \"BMO.PRJ.TO\",\n\t\t\t\"symbolId\":  9300,\n\t\t\t\"description\":  \"BANK OF MONTREAL CL B SR 13\",\n\t\t\t\"securityType\":  \"Stock\",\n\t\t\t\"listingExchange\":  \"TSX\",\n\t\t\t\"isTradable\":  true,\n\t\t\t\"isQuotable\":  true,\n\t\t\t\"currency\":  \"CAD\"\n\t\t}\n\t]\n}"
+    }
+  ]
+}

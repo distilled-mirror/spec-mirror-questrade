@@ -1,0 +1,248 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/market-calls/markets-quotes-id",
+  "title": "GET markets/quotes/:id",
+  "summary": "Retrieves a single Level 1 market data quote for one or more symbols.",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "IMPORTANT NOTE: Questrade user needs to be subscribed to a real-time data package, to receive market quotes in real-time, otherwise call to get quote is considered snap quote and limit per market can be quickly reached. Without real-time data package, once limit is reached, the response will return delayed data. (Please check \"delay\" parameter in response always)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "Integer",
+            "Internal symbol identifier. Can occur in the ‘location’ header only. Mutually exclusive with ‘ids’ parameter."
+          ]
+        },
+        {
+          "cells": [
+            "ids",
+            "Complex",
+            "Comma-separated list of symbol ids."
+          ]
+        },
+        {
+          "cells": [
+            "id",
+            "String",
+            "Internal symbol identifier."
+          ],
+          "level": 2
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "quotes",
+            "Complex",
+            "List of Quote records."
+          ]
+        },
+        {
+          "cells": [
+            "Quote",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "symbol",
+            "String",
+            "Symbol name following Questrade’s symbology."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "tier",
+            "Enumeration",
+            "Market tier."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "bidPrice",
+            "Double",
+            "Bid price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "bidSize",
+            "Integer",
+            "Bid quantity."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "askPrice",
+            "Double",
+            "Ask price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "askSize",
+            "Integer",
+            "Ask quantity."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "astTradeTrHrs",
+            "Double",
+            "Price of the last trade during regular trade hours."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "lastTradePrice",
+            "Double",
+            "Price of the last trade."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "lastTradeSize",
+            "Integer",
+            "Quantity of the last trade."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "lastTradeTick",
+            "Enumeration",
+            "Trade direction. See [Tick Type](/api/documentation/rest-operations/enumerations/enumerations#tick-type) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "volume",
+            "Integer",
+            "Volume."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "openPrice",
+            "Double",
+            "Opening trade price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "highPrice",
+            "Double",
+            "Daily high price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "lowPrice",
+            "Double",
+            "Daily low price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "delay",
+            "Boolean",
+            "Whether a quote is delayed (true) or real-time. Please refer to IMPORTANT NOTE section for correct handling"
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isHalted",
+            "Boolean",
+            "Whether trading in the symbol is currently halted."
+          ],
+          "level": 3
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/markets/quotes/3873"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/markets/quotes?ids=38738,..."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n    \"quotes\": [\n\t    {\n\t\t  \"symbol\": \"THI.TO\",\n\t\t  \"symbolId\": 38738,\n\t\t  \"tier\": \" \", \n\t\t  \"bidPrice\": 83.65, \n\t\t  \"bidSize\":6500, \n\t\t  \"askPrice\":  83.67,\n\t\t  \"askSize\": 9100,\n\t\t  \"lastTradePriceTrHrs\": 83.66, \n\t\t  \"lastTradePrice\": 83.66,\n\t   \t  \"lastTradeSize\": 3100,\n\t\t  \"lastTradeTick\": \"Equal\",\n\t\t  \"lastTradeTime\": \"2014-10-24T20:06:40.131000-04:00\",\n\t\t  \"volume\": 80483500, \n\t\t  \"openPrice\":  83.66, \n\t\t  \"highPrice\": 83.86, \n\t\t  \"lowPrice\": 83.66,\n\t\t  \"delay\": 0, \n\t\t  \"isHalted\": false\n        },\n\t\t...\n      ]\n  }"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/order-calls/accounts-id-orders-impact",
+  "title": "POST accounts/:id/orders/impact",
+  "summary": "Allows to calculate the impact that a given order will have on the account without placing it.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "Account number against which order is being submitted."
+          ]
+        },
+        {
+          "cells": [
+            "orderId",
+            "Integer",
+            "Optional – Order Id of order to be replace estimated."
+          ]
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier."
+          ]
+        },
+        {
+          "cells": [
+            "quantity",
+            "Integer",
+            "Order quantity."
+          ]
+        },
+        {
+          "cells": [
+            "icebergQuantity",
+            "Integer",
+            "Iceberg instruction quantity."
+          ]
+        },
+        {
+          "cells": [
+            "limitPrice",
+            "Double",
+            "Limit price."
+          ]
+        },
+        {
+          "cells": [
+            "stopPrice",
+            "Double",
+            "Stop price."
+          ]
+        },
+        {
+          "cells": [
+            "isAllOrNone",
+            "Boolean",
+            "Identifies whether All-or-None instruction is enabled."
+          ]
+        },
+        {
+          "cells": [
+            "isAnonymous",
+            "Boolean",
+            "Identifies whether Anonymous instruction is enabled."
+          ]
+        },
+        {
+          "cells": [
+            "orderType",
+            "Enumeration",
+            "Order type (e.g., \"Market\"). See [Order Type](/api/documentation/rest-operations/enumerations/enumerations#order-type) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "action",
+            "Enumeration",
+            "Order side (e.g., \"Buy\"). See [Order Action](/api/documentation/rest-operations/enumerations/enumerations#order-action) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "primaryRoute",
+            "Enumeration",
+            "Primary order route (e.g., \"AUTO\")."
+          ]
+        },
+        {
+          "cells": [
+            "secondaryRoute",
+            "Enumeration",
+            "Secondary order route (e.g., \"NYSE\")."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Properties",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "estimatedCommissions",
+            "Double",
+            "Estimate of commissions to be charged on the order."
+          ]
+        },
+        {
+          "cells": [
+            "buyingPowerEffect",
+            "Double",
+            "Estimate of change in buying power from the order."
+          ]
+        },
+        {
+          "cells": [
+            "buyingPowerResult",
+            "Double",
+            "Estimate of buying power in which order will result."
+          ]
+        },
+        {
+          "cells": [
+            "maintExcessEffect",
+            "Double",
+            "Estimate of change in maintenance excess from the order."
+          ]
+        },
+        {
+          "cells": [
+            "maintExcessResult",
+            "Double",
+            "Estimate of maintenance excess in which the order will result."
+          ]
+        },
+        {
+          "cells": [
+            "side",
+            "Enumeration",
+            "Client view of the order side (e.g., \"Buy-To-Open\")."
+          ]
+        },
+        {
+          "cells": [
+            "tradeValueCalculation",
+            "String",
+            "Estimate of the order execution value."
+          ]
+        },
+        {
+          "cells": [
+            "price",
+            "Double",
+            "Estimated average fill price."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST https://api01.iq.questrade.com/v1/accounts/26598145/orders/impact\n{\n\t\"symbolId\":8049 ,\n\t\"quantity\": 10 ,\n\t\"orderType\": \"Market\",\n\t\"timeInForce\": \"Day\",\n\t\"action\":\"Buy\",\n\t\"primaryRoute\":\"AUTO\",\n\t\"secondaryRoute\": \"AUTO\",\n\t\"accountNumber\": \"XXXXXXXX\",\n\t\"isAllOrNone\": false,\n\t\"isAnonymous\": false,\n\t\"isLimitOffsetInDollar\": false\n}"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n\t  \"estimatedCommissions\":  4.9675 ,\n\t  \"buyingPowerEffect\": -235.475 ,\n\t  \"buyingPowerResult\": 1999764.525,\n\t  \"maintExcessEffect\": -117.7375,\n\t  \"maintExcessResult\": 999882.2625,\n\t  \"side\": \"Buy\",\n\t  \"tradeValueCalculation\": \"5 x 75.18 = 375.90 CAD\",\n\t  \"price\": 102.51\n    }"
+    }
+  ]
+}

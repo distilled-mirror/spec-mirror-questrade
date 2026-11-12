@@ -1,0 +1,173 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/order-calls/accounts-id-orders-strategy",
+  "title": "POST accounts/:id/orders/strategy",
+  "summary": "Allows to (re)place or estimate impact of a multi-leg strategy order against a certain account.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "sample-request",
+      "text": "Sample Request"
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "Account number against which order is being submitted.\n\nCan occur in the 'Location' header only."
+          ]
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier.\n\nAlways an underlying symbol Id."
+          ]
+        },
+        {
+          "cells": [
+            "limitPrice",
+            "Double",
+            "Limit price"
+          ]
+        },
+        {
+          "cells": [
+            "orderType",
+            "Enumeration",
+            "Order type (e.g., \"Market\").\n\nSee [Order Type](/api/documentation/rest-operations/enumerations/enumerations#order-type) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "timeInForce",
+            "Enumeration",
+            "Order duration (e.g., \"DAY\").\n\nSee [Order Duration](/api/documentation/rest-operations/enumerations/enumerations#order-time-in-force) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "primaryRoute",
+            "Enumeration",
+            "Primary order route (e.g., \"AUTO\")."
+          ]
+        },
+        {
+          "cells": [
+            "secondaryRoute",
+            "Enumeration",
+            "Secondary order route (e.g., \"NYSE\")."
+          ]
+        },
+        {
+          "cells": [
+            "legs",
+            "Complex",
+            "Legs data"
+          ]
+        },
+        {
+          "cells": [
+            "strategy",
+            "Enumeration",
+            "Strategy type (e.g. \"CoveredCall\")\n\nSee [Strategy Types](/api/documentation/rest-operations/enumerations/enumerations#strategy-types) section for all allowed values."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "insert-order-leg-data",
+      "text": "InsertOrderLegData"
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Name",
+        "Type",
+        "Default",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "",
+            "Internal symbol identifier."
+          ]
+        },
+        {
+          "cells": [
+            "action",
+            "Enumeration",
+            "",
+            "Leg action (e.g. \"Buy\")\nSee [Order Action](/api/documentation/rest-operations/enumerations/enumerations#order-action) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "legQuantity",
+            "Integer",
+            "",
+            "Leg quantity"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Maximum of 4 legs is allowed."
+    },
+    {
+      "type": "paragraph",
+      "text": "If the Strategy Type is set as not Custom, then it will be verified to the mentioned strategy."
+    },
+    {
+      "type": "paragraph",
+      "text": "NOTE: Leg quantities will be factorized. For example, if you place quantities of 10 and 1000, then they will be sent as an order quantity of 10 and leg ratio quantities of 1 and 100. Price also uses a factorized strategy. Refer to the strategy quote call to be sure which price to use."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "New Strategy"
+    },
+    {
+      "type": "paragraph",
+      "text": "Data is the same but URLs for insertion and impact are slightly different."
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST https://api01.iq.questrade.com/v1/accounts/90000004/orders/strategy/impact \n\nPOST https://api01.iq.questrade.com/v1/accounts/90000004/orders/strategy\n\n{\n    \"symbolId\":  27426,\n    \"quantity\":  1,\n    \"limitPrice\": -1.23,\n    \"orderType\": \"Limit\",\n    \"timeInForce\": \"Day\",\n    \"primaryRoute\": \"MNGD\",\n    \"secondaryRoute\": \"AUTO\",\n    \"legs\": [\n        {\n            \"symbolId\": 10550014,\n            \"action\": \"Sell\",\n            \"legRatioQty\": 10\n        },\n        {\n            \"symbolId\": 27426,\n            \"action\": \"Buy\",\n            \"legRatioQty\": 1000\n        }\n    ],\n    \"strategy\": \"Custom\"\n}"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response for impact:"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n    \"estimatedCommissions\":  30.830048,\n    \"buyingPowerEffect\": -14161.660096,\n    \"buyingPowerResult\": 1957395.027392,\n    \"maintExcessEffect\": -7080.830048,\n    \"maintExcessResult\": 978697.513696,\n    \"tradeValueCalculation\":\"10 x (-1.23) x 100 = CR 1,230.00 USD\",\n    \"legs\": [\n        {\n              \"legId\": 0,\n              \"symbol\": \"MSFT\",\n              \"symbolId\": 27426,\n              \"legRatioQuantity\": 100,\n              \"side\": \"Buy\",\n              \"avgExecPrice\": null,\n              \"lastExecPrice\": null\n        },\n        {\n              \"legId\": 1,\n              \"symbol\": \"MSFT20Jan17C70.00\",\n              \"symbolId\":\" 7413503,\n              \"legRatioQuantity\": 1,\n              \"side\": \"STO\",\n              \"avgExecPrice\": null,\n              \"lastExecPrice\": null\n        }\n    ],\n      \"side\": \"Buy\",\n      \"effect\":  \"Credit\",\n      \"price\":  -1.23,\n      \"strategy\": \"CoveredCall\"\n}"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response for insertion:"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n    \"orderId\": 330711306  ,\n    \"orders\": [\n        {\n              \"id\": 330711306 ,\n              \"symbol\": \"MSFT\",\n              \"symbolId\":  27426,\n              \"totalQuantity\":  10,\n              \"openQuantity\": 10,\n              \"filledQuantity\": 0,\n              \"canceledQuantity\": 0,\n              \"side\": \"Buy\",\n              \"orderType\": \"Limit\",\n              \"limitPrice\": -1.23,\n              \"stopPrice\": null,\n              \"isAllOrNone\": false,\n              \"isAnonymous\": false,\n              \"icebergQuantity\": null,\n              \"minQuantity\":  null,\n              \"avgExecPrice\":  0,\n              \"lastExecPrice\": null,\n              \"source\": \"TradingAPI\",\n              \"timeInForce\": \"Day\",\n              \"gtdDate\":  null,\n              \"state\": \"Pending\",\n              \"rejectionReason\": \"\",\n              \"chainId\":  330711306,\n              \"creationTime\": \"2015-08-24T15:48:58.476000-04:00\",\n              \"updateTime\": \"2015-08-24T15:48:58.594000-04:00\",\n              \"notes\": \"\",\n              \"primaryRoute\": \"MNGD\",\n              \"secondaryRoute\": \"AUTO\",\n              \"orderRoute\":  \"MNGD\",\n              \"venueHoldingOrder\":  \"\",\n              \"comissionCharged\":  0,\n              \"exchangeOrderId\": \"\",\n              \"isSignificantShareHolder\": false,\n              \"isInsider\": false,\n              \"isLimitOffsetInDollar\": false,\n              \"userId\": 90040,\n              \"placementCommission\": null,\n              \"legs\": [\n                  {\n                        \"legId\": 0,\n                        \"symbol\": \"MSFT\",\n                        \"symbolId\":  27426,\n                        \"legRatioQuantity\":  100,\n                        \"side\": \"Buy\",\n                        \"avgExecPrice\": 0,\n                        \"lastExecPrice\": null\n                  },\n                  {\n                        \"legId\":1,\n                        \"symbol\": \"MSFT20Jan17C70.00\",\n                        \"symbolId\": 7413503,\n                        \"legRatioQuantity\": 1,\n                        \"side\": \"STO\",\n                        \"avgExecPrice\": 0,\n                        \"lastExecPrice\": null\n                  }\n              ],\n              \"strategyType\": \"CoveredCall\",\n              \"triggerStopPrice\": null,\n              \"orderGroupId\": 0,\n              \"orderClass\": null,\n              \"isCrossZero\": false\n        }\n        ...\n    ]\n}"
+    }
+  ]
+}

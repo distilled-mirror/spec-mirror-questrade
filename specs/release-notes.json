@@ -1,0 +1,103 @@
+{
+  "url": "https://www.questrade.com/api/documentation/release-notes",
+  "title": "Release notes",
+  "summary": "Questrade release notes are specific to each version of the application. Select your library from the list below to see the release notes for it.",
+  "blocks": [
+    {
+      "type": "table",
+      "columns": [
+        "Version",
+        "Date",
+        "Components",
+        "Details"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.1.0",
+            "December 18,2015",
+            "C++/C#/Active X",
+            "Streaming, Account Activity, Bracket and Strategy orders"
+          ]
+        },
+        {
+          "cells": [
+            "1.0.0",
+            "March 7,2015",
+            "C ++",
+            "API libraries added"
+          ]
+        },
+        {
+          "cells": [
+            "1.0.0",
+            "March 7,2015",
+            "C++/C#/Active X",
+            "API libraries added"
+          ]
+        },
+        {
+          "cells": [
+            "1.0.1",
+            "August 18,2015",
+            "C++/C#/Active X",
+            "Additional support for getting symbols by name"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Downloads"
+    },
+    {
+      "type": "paragraph",
+      "text": "C ++"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcpp.exe)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "C #/Active X"
+    },
+    {
+      "type": "table",
+      "caption": "Downloads",
+      "columns": [
+        "Dec 18, 2015",
+        "Release notes"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Version 1.1.0"
+          ]
+        },
+        {
+          "cells": [
+            "[Download API (opens in a new tab)](https://media.questrade.com/iq_downloads/QuestradeTradingAPIcsharp.exe)"
+          ]
+        }
+      ]
+    }
+  ]
+}

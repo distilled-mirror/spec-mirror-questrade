@@ -1,0 +1,172 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/order-calls/accounts-id-orders",
+  "title": "POST accounts/:id/orders",
+  "summary": "Allows to (re)place an order against a certain account.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "Account number against which order is being submitted. Can occur in the 'Location' header only."
+          ]
+        },
+        {
+          "cells": [
+            "orderId",
+            "Integer",
+            "Optional – order id of the order to be replaced."
+          ]
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier."
+          ]
+        },
+        {
+          "cells": [
+            "quantity",
+            "Integer",
+            "Order quantity."
+          ]
+        },
+        {
+          "cells": [
+            "icebergQuantity",
+            "Integer",
+            "Iceberg instruction quantity."
+          ]
+        },
+        {
+          "cells": [
+            "limitPrice",
+            "Double",
+            "Limit price."
+          ]
+        },
+        {
+          "cells": [
+            "stopPrice",
+            "Double",
+            "Stop price."
+          ]
+        },
+        {
+          "cells": [
+            "isAllOrNone",
+            "Boolean",
+            "Identifies whether the all-or-none instruction is enabled."
+          ]
+        },
+        {
+          "cells": [
+            "isAnonymous",
+            "Boolean",
+            "Identifies whether the anonymous instruction is enabled."
+          ]
+        },
+        {
+          "cells": [
+            "orderType",
+            "Enumeration",
+            "Order type (e.g., \"Market\"). See [Order Type](/api/documentation/rest-operations/enumerations/enumerations#order-type) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "action",
+            "Enumeration",
+            "Order side (e.g., \"Buy\"). See [Order Action](/api/documentation/rest-operations/enumerations/enumerations#order-action) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "primaryRoute",
+            "Enumeration",
+            "Primary order route (e.g., \"AUTO\")."
+          ]
+        },
+        {
+          "cells": [
+            "secondaryRoute",
+            "Enumeration",
+            "Secondary order route (e.g., \"NYSE\")."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "orderId",
+            "Integer",
+            "Internal order identifier."
+          ]
+        },
+        {
+          "cells": [
+            "orders",
+            "Complex",
+            "List of order objects."
+          ]
+        },
+        {
+          "cells": [
+            "Order",
+            "Complex",
+            ""
+          ],
+          "level": 2
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST https://api01.iq.questrade.com/v1/accounts/26598145/orders \n{ \n\t\"accountNumber\" :  XXXXXXXX ,\n\t\"symbolId\":   8049,\n\t\"quantity\": 10,\n\t\"icebergQuantity\": 1,\n\t\"limitPrice\": 537,\n\t\"isAllOrNone\":  true,\n\t\"isAnonymous\": false,\n\t\"orderType\": \"Limit\",\n\t\"timeInForce\": \"GoodTillCanceled\",\n\t\"action\": \"Buy\",\n\t\"primaryRoute\":\"AUTO\",\n\t\"secondaryRoute\": \"AUTO\"\n}"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n\t\"orderId\": 177106005 ,\n\t\"orders\": [\n\t\t{\n\t\t\t\"id\": 177106005 ,\n\t\t\t\"symbol\": \"AAPL\",\n\t\t\t\"symbolId\": 8049,\n\t\t\t\"totalQuantity\":  10,\n\t\t\t\"openQuantity\":   10,\n\t\t\t\"filledQuantity\": 0,\n\t\t\t\"canceledQuantity\": 0,\n\t\t\t\"side\": \"Buy\",\n\t\t\t\"orderType\":  \"Limit\",\n\t\t\t\"limitPrice\":  537,\n\t\t\t\"stopPrice\":  null,\n\t\t\t\"isAllOrNone\":  true,\n\t\t\t\"isAnonymous\":  false,\n\t\t\t\"icebergQty\":  1,\n\t\t\t\"minQuantity\":  null,\n\t\t\t\"avgExecPrice\":  null,\n\t\t\t\"lastExecPrice\":  null,\n\t\t\t\"source\":  \"TradingAPI\",\n\t\t\t\"timeInForce\":  \"GoodTillCanceled\",\n\t\t\t\"gtdDate\":  null,\n\t\t\t\"state\":  \"Pending\",\n\t\t\t\"clientReasonStr\":  \"\",\n\t\t\t\"chainId\":  177106005,\n\t\t\t\"creationTime\":  \"2014-10-24T17:48:20.546000-04:00\",\n\t\t\t\"updateTime\": \"2014-10-24T17:48:20.876000-04:00\",\n\t\t\t\"notes\":  \"\",\n\t\t\t\"primaryRoute\":  \"LAMP\",\n\t\t\t\"secondaryRoute\":  \"AUTO\",\n\t\t\t\"orderRoute\":  \"LAMP\",\n\t\t\t\"venueHoldingOrder\":  \"\",\n\t\t\t\"comissionCharged\":  0,\n\t\t\t\"exchangeOrderId\":  \"\",\n\t\t\t\"isSignificantShareHolder\":  false,\n\t\t\t\"isInsider\":  false,\n\t\t\t\"isLimitOffsetInDollar\":  false,\n\t\t\t\"userId\":  3000124,\n\t\t\t\"placementCommission\":  null,\n\t\t\t\"legs\": [],\n\t\t\t\"strategyType\":  \"SingleLeg\",\n\t\t\t\"triggerStopPrice\":  null,\n\t\t\t\"orderGroupId\":  0,\n\t\t\t\"orderClass\":  null,\n\t\t\t\"mainChainId\":  0\n\t\t},\n\t\t...\n\t]\n}"
+    }
+  ]
+}

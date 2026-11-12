@@ -1,0 +1,61 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/account-calls/time",
+  "title": "GET time",
+  "summary": "Retrieves current server time.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "paragraph",
+      "text": "No parameters."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "time",
+            "DateTime",
+            "Current server time in ISO format and Eastern time zone."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/time"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n    \"time\": \"2014-10-24T12:14:42.730000-04:00\" \n}"
+    }
+  ]
+}

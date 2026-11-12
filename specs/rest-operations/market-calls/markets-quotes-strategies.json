@@ -1,0 +1,260 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/market-calls/markets-quotes-strategies",
+  "title": "GET markets/quotes/strategies",
+  "summary": "Retrieve a calculated L1 market data quote for a single or many multi-leg strategies.",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request",
+      "text": "Request"
+    },
+    {
+      "type": "table",
+      "caption": "Request",
+      "columns": [
+        "Name",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "variants",
+            "Complex",
+            "Input array of Strategy Variants"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "strategy-variant-request",
+      "text": "StrategyVariantRequest"
+    },
+    {
+      "type": "paragraph",
+      "text": "Strategy record for strategy quotes."
+    },
+    {
+      "type": "table",
+      "caption": "StrategyVariantRequest",
+      "columns": [
+        "Name",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "variantId",
+            "Integer",
+            "Variant ID"
+          ]
+        },
+        {
+          "cells": [
+            "strategy",
+            "Enumeration",
+            "Strategy type (e.g. “Custom”) See [Strategy Types](/api/documentation/rest-operations/enumerations/enumerations#strategy-types) section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "legs",
+            "Complex",
+            "Array of Strategy legs"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "strategy-variant-leg",
+      "text": "StrategyVariantLeg"
+    },
+    {
+      "type": "paragraph",
+      "text": "Strategy record for strategy quotes"
+    },
+    {
+      "type": "table",
+      "caption": "StrategyVariantLeg",
+      "columns": [
+        "Name",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier"
+          ]
+        },
+        {
+          "cells": [
+            "action",
+            "Enumeration",
+            "Order side (e.g. “Buy”) See[Order Action](/api/documentation/rest-operations/enumerations/enumerations#order-action)section for all allowed values."
+          ]
+        },
+        {
+          "cells": [
+            "ratio",
+            "Integer",
+            "Numeric ration of the leg in strategy"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Name",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "variantId",
+            "Integer",
+            "Variant ID corresponding to variant in request"
+          ]
+        },
+        {
+          "cells": [
+            "bidPrice",
+            "Double",
+            "Bid price"
+          ]
+        },
+        {
+          "cells": [
+            "askPrice",
+            "Double",
+            "Ask price"
+          ]
+        },
+        {
+          "cells": [
+            "underlying",
+            "String",
+            "Underlying name"
+          ]
+        },
+        {
+          "cells": [
+            "underlyingId",
+            "Integer",
+            "Underlying ID"
+          ]
+        },
+        {
+          "cells": [
+            "openPrice",
+            "Double",
+            "Open price"
+          ]
+        },
+        {
+          "cells": [
+            "volatility",
+            "Double",
+            "Volatility"
+          ]
+        },
+        {
+          "cells": [
+            "delta",
+            "Double",
+            "Delta"
+          ]
+        },
+        {
+          "cells": [
+            "gamma",
+            "Double",
+            "Gamma"
+          ]
+        },
+        {
+          "cells": [
+            "theta",
+            "Double",
+            "Theta"
+          ]
+        },
+        {
+          "cells": [
+            "vega",
+            "Double",
+            "Vega"
+          ]
+        },
+        {
+          "cells": [
+            "rho",
+            "Double",
+            "Rho"
+          ]
+        },
+        {
+          "cells": [
+            "isRealTime",
+            "Boolean",
+            "Whether or not the data is real-time"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "NOTES:"
+    },
+    {
+      "type": "listItem",
+      "text": "Leg quantities will be factorized. For example, if you place quantities of 10 and 1000, they will be sent as an order quantity of 10 and leg ratio quantities 1 and 100. Price uses a factorized strategy."
+    },
+    {
+      "type": "listItem",
+      "text": "Maximum of 4 legs is allowed."
+    },
+    {
+      "type": "listItem",
+      "text": "The variantId parameter will be echoed so you can match the quotes to the request.The variantId parameter will be echoed so you can match the quotes to the request."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "POST https://api01.iq.questrade.com/v1/markets/quotes/strategies\n {\n    \"variants\": [\n        {\n             \"variantId\": 1,\n             \"strategy\": ”Custom”,\n             \"legs\": [\n                   {\n                      \"symbolId\": 27426,\n                      \"ratio\":  1000,\n                      \"action\": \"Buy\"\n                   },\n                   {\n                       \"symbolId\": 10550014,\n                       \"ratio\":  10,\n                       \"action\": \"Sell\"\n                   }\n                ]\n          },\n             ...\n    ]\n}"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample response:"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n       “stategyQuotes”: [\n           {\n               “variantId”: 1,\n               “bidPrice”: 27.2,\n               “askPrice”: 27.23,\n               “underlying”: ”MSFT”,\n               “underlyingId”:  27426,\n               “openPrice”:  null,\n               “volatility”: 0,\n               “delta”: 1,\n               “gamma”: 0,\n               “theta”: 0,\n               “vega”: 0,\n               “rho”: 0,\n               “isRealTime”: true\n           },\n              ...\n      ]\n }"
+    }
+  ]
+}

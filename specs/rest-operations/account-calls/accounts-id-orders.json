@@ -1,0 +1,465 @@
+{
+  "url": "https://www.questrade.com/api/documentation/rest-operations/account-calls/accounts-id-orders",
+  "title": "GET accounts/:id/orders[/:orderId]",
+  "summary": "Retrieves orders for specified account",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "request-parameters",
+      "text": "Request parameters"
+    },
+    {
+      "type": "table",
+      "caption": "Request parameters",
+      "columns": [
+        "Parameter",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "id",
+            "String",
+            "Account number. Can occur in the 'location' header only."
+          ]
+        },
+        {
+          "cells": [
+            "startTime",
+            "DateTime",
+            "Start of time range in ISO format. By default – start of today, 12:00am."
+          ]
+        },
+        {
+          "cells": [
+            "endTime",
+            "DateTime",
+            "End of time range in ISO format. By default – end of today, 11:59pm"
+          ]
+        },
+        {
+          "cells": [
+            "stateFilter",
+            "Enum",
+            "All, Open, Closed – retrieve all, active or closed orders."
+          ]
+        },
+        {
+          "cells": [
+            "orderId",
+            "Integer",
+            "Retrieve single order details."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "id": "response-properties",
+      "text": "Response properties"
+    },
+    {
+      "type": "table",
+      "caption": "Response properties",
+      "columns": [
+        "Property",
+        "Type",
+        "Description"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "orders",
+            "Complex",
+            "List of order records."
+          ]
+        },
+        {
+          "cells": [
+            "Order",
+            "",
+            ""
+          ],
+          "level": 2
+        },
+        {
+          "cells": [
+            "id",
+            "Integer",
+            "Internal order identifier."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "symbol",
+            "String",
+            "Symbol that follows Questrade symbology (e.g., \"TD.TO\")."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "symbolId",
+            "Integer",
+            "Internal symbol identifier."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "totalQuantity",
+            "Integer",
+            "Total quantity of the order."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "openQuantity",
+            "Integer",
+            "Unfilled portion of the order quantity."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "filledQuantity",
+            "Integer",
+            "Filled portion of the order quantity."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "canceledQuantity",
+            "Integer",
+            "Unfilled portion of the order quantity after cancellation."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "side",
+            "Integer",
+            "Client view of the order side (e.g., \"Buy-To-Open\"). See [Order Side](/api/documentation/rest-operations/enumerations/enumerations#order-side) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "orderType",
+            "Enumeration",
+            "Order price type (e.g., \"Market\"). See [Order Type](/api/documentation/rest-operations/enumerations/enumerations#order-type) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "limitPrice",
+            "Integer",
+            "Limit price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "stopPrice",
+            "Double",
+            "Stop price."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isAllOrNone",
+            "Boolean",
+            "Specifies all-or-none special instruction."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isAnonymous",
+            "Boolean",
+            "Specifies Anonymous special instruction."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "icebergQuantity",
+            "Integer",
+            "Specifies Iceberg special instruction."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "minQuantity",
+            "Integer",
+            "Specifies Minimum special instruction."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "avgExecPrice",
+            "Double",
+            "Average price of all executions received for this order."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "lastExecPrice",
+            "Double",
+            "Price of the last execution received for the order in question."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "source",
+            "Enumeration",
+            ""
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "timeInForce",
+            "Enumeration",
+            "See [Order Time In Force](/api/documentation/rest-operations/enumerations/enumerations#order-time-in-force) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "gtdDate",
+            "DateTime",
+            "Good-Till-Date marker and date parameter"
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "state",
+            "Enumeration",
+            "See [Order State](/api/documentation/rest-operations/enumerations/enumerations#order-state) section for all allowed values."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "clientReasonStr",
+            "String",
+            "Human readable order rejection reason message."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "chainId",
+            "Integer",
+            "Internal identifier of a chain to which the order belongs."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "creationTime",
+            "DateTime",
+            "Order creation time."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "updateTime",
+            "DateTime",
+            "Time of the last update."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "notes",
+            "String",
+            "Notes that may have been manually added by Questrade staff."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "primaryRoute",
+            "Enumeration",
+            ""
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "secondaryRoute",
+            "Enumeration",
+            ""
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "orderRoute",
+            "Enumeration",
+            "Order route name."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "venueHoldingOrder",
+            "Enumeration",
+            "Venue where non-marketable portion of the order was booked."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "commissionCharged",
+            "Double",
+            "Total commission amount charged for this order."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "exchangeOrderId",
+            "String",
+            "Identifier assigned to this order by exchange where it was routed."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isSignificantShareholder",
+            "Boolean",
+            "Whether user that placed the order is a significant shareholder."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isInsider",
+            "Boolean",
+            "Whether user that placed the order is an insider."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "isLimitOffsetInDollar",
+            "Boolean",
+            "Whether limit offset is specified in dollars (vs. percent)."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "userId",
+            "Integer",
+            "Internal identifier of user that placed the order."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "placementCommission",
+            "Double",
+            "Commission for placing the order via the Trade Desk over the phone."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "legs",
+            "Complex",
+            "List of OrderLeg elements."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "OrderLeg",
+            "Complex",
+            ""
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "strategyType",
+            "Enumeration",
+            "Multi-leg strategy to which the order belongs."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "triggerStopPrice",
+            "Double",
+            "Stop price at which order was triggered."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "orderGroupId",
+            "Integer",
+            "Internal identifier of the order group."
+          ],
+          "level": 3
+        },
+        {
+          "cells": [
+            "orderClass",
+            "Enumeration",
+            "Bracket Order class. Primary, Profit or Loss."
+          ],
+          "level": 3
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/accounts/26598145/orders"
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample request"
+    },
+    {
+      "type": "code",
+      "language": "HTTP",
+      "text": "GET https://api01.iq.questrade.com/v1/accounts/26598145/orders?ids=173577870,..."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Sample JSON response"
+    },
+    {
+      "type": "code",
+      "language": "JSON",
+      "text": "{\n\t\"orders\": [\n\t\t{\n\t\t\t\"id\": 173577870,\n\t\t\t\"symbol\": \"AAPL\",\n\t\t\t\"symbolId\":  8049,\n\t\t\t\"totalQuantity\":  100,\n\t\t\t\"openQuantity\":  100,\n\t\t\t\"filledQuantity\":  0,\n\t\t\t\"canceledQuantity\": 0,\n\t\t\t\"side\": \"Buy\",\n\t\t\t\"type\": \"Limit\",\n\t\t\t\"limitPrice\": 500.95,\n\t\t\t\"stopPrice\": null,\n\t\t\t\"isAllOrNone\": false,\n\t\t\t\"isAnonymous\": false,\n\t\t\t\"icebergQty\": null,\n\t\t\t\"minQuantity\": null,\n\t\t\t\"avgExecPrice\": null,\n\t\t\t\"lastExecPrice\": null,\n\t\t\t\"source\": \"TradingAPI\",\n\t\t\t\"timeInForce\": \"Day\",\n\t\t\t\"gtdDate\":  null,\n\t\t\t\"state\": \"Canceled\",\n\t\t\t\"clientReasonStr\": \"\",\n\t\t\t\"chainId\": 173577870,\n\t\t\t\"creationTime\": 2014-10-23T20:03:41.636000-04:00,\n\t\t\t\"updateTime\": 2014-10-23T20:03:42.890000-04:00,\n\t\t\t\"notes\": \"\",\n\t\t\t\"primaryRoute\": \"AUTO\",\n\t\t\t\"secondaryRoute\": \"\",\n\t\t\t\"orderRoute\": \"LAMP\",\n\t\t\t\"venueHoldingOrder\": \"\",\n\t\t\t\"comissionCharged\": 0,\n\t\t\t\"exchangeOrderId\": \"XS173577870\",\n\t\t\t\"isSignificantShareHolder\":  false,\n\t\t\t\"isInsider\":  false,\n\t\t\t\"isLimitOffsetInDollar\": false,\n\t\t\t\"userId\": 3000124,\n\t\t\t\"placementCommission\":  null,\n\t\t\t\"legs\": [],\n\t\t\t\"strategyType\": \"SingleLeg\",\n\t\t\t\"triggerStopPrice\": null,\n\t\t\t\"orderGroupId\": 0,\n\t\t\t\"orderClass\":  null,\n\t\t\t\"mainChainId\": 0\n\t\t},\n\t\t...\n\t]\n}"
+    }
+  ]
+}
